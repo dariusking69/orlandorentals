@@ -1,0 +1,5 @@
+shot.html
+.DS_Store
+# CNAME stays out until Alex points DNS at GitHub Pages — committing it early
+# makes the github.io preview URL redirect to a domain that doesn't resolve yet.
+CNAME

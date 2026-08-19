@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orlando Rentals | Atrium Management Company</title>
+<meta name="description" content="Orlando rental homes and apartments, every one managed by Atrium Management Company — the boutique firm behind 11,000+ doors, rated 4.6 stars across 700+ Google reviews. See what's available today.">
+<link rel="canonical" href="https://orlandorentals.com/">
+<link rel="icon" type="image/png" href="assets/favicon-A.png">
+<link rel="apple-touch-icon" href="assets/favicon-A.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://orlandorentals.com/">
+<meta property="og:title" content="Orlando Rentals. Not a clever name. An accurate one.">
+<meta property="og:description" content="Real Orlando homes for rent, managed by Atrium Management Company — 11,000+ doors, 4.6 stars on Google.">
+<meta property="og:image" content="https://orlandorentals.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Orlando Rentals. Not a clever name. An accurate one.">
+<meta name="twitter:description" content="Real Orlando homes for rent, managed by Atrium Management Company — 11,000+ doors, 4.6 stars on Google.">
+<meta name="twitter:image" content="https://orlandorentals.com/assets/og.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Orlando Rentals",
+  "url": "https://orlandorentals.com/",
+  "description": "Orlando rental homes and apartments managed by Atrium Management Company.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Atrium Management Company",
+    "url": "https://www.meetatrium.com"
+  },
+  "about": {
+    "@type": "Organization",
+    "name": "Atrium Management Company",
+    "url": "https://www.meetatrium.com",
+    "logo": "https://orlandorentals.com/assets/atrium-management-logo.png",
+    "telephone": "+1-407-585-2721",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://listings.meetatrium.com" crossorigin>
+
+<style>
+:root{
+  --black:#121212;
+  --ink-2:#1a1a1c;
+  --hairline:#2a2a2c;
+  --charcoal:#424245;
+  --dim:#a9a9ae;      /* secondary text on dark — keeps 4.5:1+ */
+  --light:#e6e6e6;
+  --mist:#f5f5f7;
+  --white:#ffffff;
+  --red:#f13d3d;
+  --display:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Open Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --track-label:.2em;
+  --track-cta:.09em;
+  --pad:clamp(20px,6vw,84px);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1440px;margin:0 auto}
+
+::selection{background:var(--red);color:var(--black)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:4px}
+
+/* ---------- header ---------- */
+.site-head{
+  position:absolute;top:0;left:0;right:0;z-index:6;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:clamp(20px,3.4vw,36px) var(--pad);
+}
+.site-head .lockup img{height:clamp(15px,1.6vw,20px);width:auto}
+.head-link{
+  font-family:var(--display);font-weight:700;font-size:11px;
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--light);
+  display:inline-flex;align-items:center;gap:8px;position:relative;padding-bottom:3px;
+}
+.head-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .2s var(--ease-out)}
+.head-link::after{
+  content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--red);
+  transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease-out);
+}
+.head-link:hover::after{transform:scaleX(1)}
+.head-link:hover svg{transform:translateX(3px)}
+
+/* ---------- labels ---------- */
+.label{
+  font-family:var(--display);font-weight:700;font-size:10px;
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--dim);
+  display:inline-flex;align-items:center;gap:12px;
+}
+.label::before{content:'';width:22px;height:2px;background:var(--red);flex:none}
+.label--plain::before{display:none}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;position:relative;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:calc(clamp(20px,3.4vw,36px)*2 + 40px) var(--pad) 120px;
+}
+.hero-eyebrow{margin-bottom:clamp(18px,3vh,34px);color:var(--light)}
+.hero-eyebrow::before{background:var(--red)}
+
+.monument{
+  font-family:var(--display);font-weight:800;line-height:.92;
+  letter-spacing:-.04em;text-transform:uppercase;color:var(--white);
+  font-size:clamp(3.2rem,15.5vw,15rem);
+  user-select:none;
+}
+.monument .line{display:block;width:max-content;white-space:nowrap}
+.monument .g{display:inline-block;will-change:transform,opacity}
+.js .hero.staged .monument .g{opacity:0;transform:translateX(var(--dx,0))}
+.js .hero.staged.set .monument .g{
+  opacity:1;transform:translateX(0);
+  transition:transform 1.05s var(--ease-out),opacity .7s ease;
+  transition-delay:calc(var(--i)*35ms);
+}
+.dock{
+  display:inline-block;background:var(--red);
+  width:.13em;height:.13em;border-radius:18%;
+  vertical-align:baseline;margin-left:.045em;
+}
+.monument .dock{transform:translateY(-.012em)}
+.js .hero.staged .monument .dock{opacity:0;transform:translateY(-120px)}
+.js .hero.staged.stamped .monument .dock{
+  opacity:1;transform:translateY(-.012em);
+  transition:transform .3s cubic-bezier(.5,0,.9,.4),opacity .1s linear;
+}
+.baseline-flash{
+  position:absolute;left:0;right:0;height:2px;background:var(--red);
+  transform:scaleX(0);pointer-events:none;
+}
+.hero.stamped .baseline-flash{animation:flash .5s .28s var(--ease-out)}
+@keyframes flash{0%{transform:scaleX(0);opacity:1}60%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
+
+.hero-sub{
+  margin-top:clamp(24px,4vh,44px);max-width:600px;
+  color:var(--light);font-size:clamp(15px,1.25vw,17px);
+}
+.hero-sub strong{font-weight:600;color:var(--white)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(24px,3.6vh,40px)}
+.js .hero.staged :is(.hero-eyebrow,.hero-sub,.cta-row){opacity:0;transform:translateY(14px)}
+.js .hero.staged.live :is(.hero-eyebrow,.hero-sub,.cta-row){
+  opacity:1;transform:none;
+  transition:opacity .6s ease,transform .6s var(--ease-out);
+}
+.js .hero.staged.live .hero-sub{transition-delay:.08s}
+.js .hero.staged.live .cta-row{transition-delay:.16s}
+
+/* ---------- buttons ---------- */
+.btn{
+  font-family:var(--display);font-weight:700;font-size:13px;
+  letter-spacing:var(--track-cta);text-transform:uppercase;
+  border-radius:4px;padding:17px 34px;display:inline-flex;align-items:center;gap:10px;
+  position:relative;transition:transform .18s var(--ease-out),background .18s ease,color .18s ease;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn .p{
+  color:var(--red);display:inline-block;width:.42em;opacity:0;
+  transform:translateX(-4px);
+  transition:transform .2s var(--ease-out),opacity .15s ease;
+}
+.btn:hover .p{transform:none;opacity:1}
+.btn--solid{background:var(--white);color:var(--black)}
+.btn--solid:hover{background:var(--light)}
+.btn--ghost{border:1.5px solid rgba(255,255,255,.55);color:var(--white)}
+.btn--ghost:hover{border-color:var(--white)}
+.btn--dark{background:var(--black);color:var(--white)}
+.btn--dark:hover{background:#000}
+.btn--red{background:var(--red);color:var(--white);font-size:19px;padding:20px 44px}
+.btn--red:hover{background:#d92f2f}
+.btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s var(--ease-out)}
+.btn:hover svg{transform:translateX(4px)}
+
+/* ---------- ticker tape ---------- */
+.tape{
+  position:absolute;left:0;right:0;bottom:0;border-top:1px solid var(--hairline);
+  overflow:hidden;background:var(--black);
+}
+.js .tape{opacity:0;transition:opacity .8s ease .4s}
+.tape.on{opacity:1}
+.tape-track{display:flex;width:max-content;animation:tape var(--tape-dur,60s) linear infinite}
+.tape:hover .tape-track{animation-play-state:paused}
+@keyframes tape{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tape-group{display:flex;align-items:center}
+.tape a{
+  font-family:var(--display);font-weight:600;font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--dim);
+  padding:15px 0;white-space:nowrap;transition:color .15s ease;
+}
+.tape:focus-within .tape-track{animation-play-state:paused}
+.tape a:hover{color:var(--white)}
+.tape a b{color:var(--light);font-weight:700}
+.tape a:hover b{color:var(--red)}
+.tape .sep{color:var(--red);padding:0 22px;font-size:11px;flex:none}
+@media (prefers-reduced-motion:reduce){
+  .tape{overflow-x:auto}
+  .tape-track{animation:none}
+}
+
+/* ---------- evidence ledger ---------- */
+.evidence{padding:clamp(72px,11vh,130px) var(--pad);border-top:1px solid var(--hairline)}
+.evidence-head{display:flex;flex-direction:column;gap:10px;margin-bottom:clamp(36px,6vh,64px)}
+.js :is(.evidence-head,.homes-head){opacity:0;transform:translateY(16px)}
+:is(.evidence-head,.homes-head).in{opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out)}
+.evidence-head p{color:var(--dim);font-size:15px}
+.ledger{border-top:1px solid var(--hairline)}
+.row{
+  display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+  padding:clamp(20px,3.4vh,34px) 0;border-bottom:1px solid var(--hairline);
+  position:relative;
+}
+.js .row{opacity:0;transform:translateY(16px)}
+.row.in{opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out)}
+.row .stat{
+  font-family:var(--display);font-weight:800;letter-spacing:-.03em;
+  font-size:clamp(2.2rem,5.6vw,4.3rem);line-height:1;color:var(--white);
+  font-variant-numeric:tabular-nums;position:relative;white-space:nowrap;
+}
+.row .stat .dock{width:.11em;height:.11em;margin:0 .03em}
+.row .what{
+  font-family:var(--display);font-weight:700;font-size:11px;
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--dim);
+  text-align:right;line-height:1.9;
+}
+.grease{position:absolute;left:-2%;bottom:-14px;width:104%;height:14px;overflow:visible;pointer-events:none}
+.grease path{
+  fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;
+}
+.row.in .grease path{animation:draw .7s .35s var(--ease-out) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ---------- homes ---------- */
+.homes{background:var(--mist);color:var(--black);padding:clamp(72px,11vh,130px) var(--pad)}
+.homes-head{
+  display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:18px;margin-bottom:clamp(30px,5vh,52px);
+}
+.homes-head .label{color:var(--charcoal)}
+.homes-head h2{
+  font-family:var(--display);font-weight:800;letter-spacing:-.03em;
+  font-size:clamp(1.9rem,4.6vw,3.4rem);line-height:1.02;text-transform:uppercase;
+  margin-top:14px;
+}
+.homes-head h2 .dock{width:.12em;height:.12em}
+.stamp{
+  font-family:var(--display);font-weight:700;font-size:10px;
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--charcoal);
+  display:inline-flex;align-items:center;gap:9px;
+  opacity:0;transform:translateY(6px);
+  transition:opacity .5s ease,transform .5s var(--ease-out);
+}
+.stamp.on{opacity:1;transform:none}
+.stamp[hidden]{display:none}
+.stamp .pulse{
+  width:7px;height:7px;border-radius:50%;background:var(--red);flex:none;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
+@media (prefers-reduced-motion:reduce){.stamp .pulse{animation:none}}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.card{
+  background:var(--white);border:1px solid var(--light);border-radius:4px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out);
+}
+.js .card{opacity:0;transform:translateY(22px)}
+/* enter is a one-shot animation with backwards fill (never forwards — a filling
+   animation would pin the hover transform), so the base 250ms transition owns hover */
+.card.in{opacity:1;transform:none;animation:card-in .65s var(--ease-out) backwards}
+@keyframes card-in{from{opacity:0;transform:translateY(22px)}}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(18,18,18,.14)}
+.card .ph{aspect-ratio:4/3;overflow:hidden;background:var(--light)}
+.card .ph img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.04);
+  transition:filter .45s ease,transform .6s var(--ease-out);
+}
+.card:hover .ph img{filter:grayscale(0) contrast(1);transform:scale(1.03)}
+@media (hover:none){.card .ph img{filter:none}}
+.card-body{padding:18px 20px 16px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.rent{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.rent span{font-family:var(--display);font-weight:600;font-size:11px;letter-spacing:.06em;color:var(--charcoal);text-transform:uppercase}
+.tag{
+  font-family:var(--display);font-weight:800;font-size:9px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal);
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+}
+.tag--now::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red)}
+.addr{font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.01em;line-height:1.4}
+.specs{
+  font-family:var(--display);font-weight:700;font-size:9.5px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal);
+}
+.card-cta{
+  margin-top:auto;padding-top:13px;border-top:1px solid var(--light);
+  font-family:var(--display);font-weight:700;font-size:10px;
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--black);
+  display:flex;align-items:center;gap:8px;
+}
+.card-cta svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.4;transition:transform .2s var(--ease-out)}
+.card:hover .card-cta svg{stroke:var(--red);transform:translateX(4px)}
+.grid-foot{display:flex;justify-content:center;margin-top:clamp(34px,6vh,56px)}
+
+/* ---------- managed ---------- */
+.managed{background:var(--white);color:var(--black);padding:clamp(72px,11vh,130px) var(--pad)}
+.managed .label{color:var(--charcoal)}
+.managed h2{
+  font-family:var(--display);font-weight:800;letter-spacing:-.035em;text-transform:uppercase;
+  font-size:clamp(2rem,5.4vw,4rem);line-height:1.04;margin:18px 0 clamp(26px,4vh,40px);
+  max-width:900px;
+}
+.managed-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(24px,3.4vw,48px);max-width:1100px}
+.managed p{color:var(--charcoal);font-size:15.5px}
+.managed p b{color:var(--black);font-weight:600}
+.js .managed :is(h2,p){opacity:0;transform:translateY(16px)}
+.managed .in:is(h2,p),.managed .in :is(p){opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out)}
+.managed-cols.in p{opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out)}
+.managed-cols.in p:nth-child(2){transition-delay:.1s}
+.managed-cols.in p:nth-child(3){transition-delay:.2s}
+.managed .sig{margin-top:clamp(40px,7vh,64px)}
+.managed .sig img{height:17px;width:auto}
+
+/* ---------- closer ---------- */
+.closer{
+  padding:clamp(90px,16vh,170px) var(--pad);
+  display:flex;flex-direction:column;align-items:flex-start;gap:26px;
+  border-top:1px solid var(--hairline);
+}
+.closer h2{
+  font-family:var(--display);font-weight:800;letter-spacing:-.04em;line-height:.95;
+  text-transform:uppercase;font-size:clamp(2.6rem,9vw,7.5rem);
+}
+.closer h2 .dock{width:.12em;height:.12em}
+.closer p{color:var(--dim);font-size:16px}
+.js .closer :is(h2,p,.btn){opacity:0;transform:translateY(18px)}
+.closer.in :is(h2,p,.btn){opacity:1;transform:none;transition:opacity .6s ease,transform .75s var(--ease-out)}
+.closer.in p{transition-delay:.1s}
+.closer.in .btn{transition-delay:.18s}
+
+/* ---------- footer ---------- */
+.site-foot{border-top:1px solid var(--hairline);padding:clamp(40px,7vh,64px) var(--pad)}
+.foot-grid{display:flex;flex-wrap:wrap;gap:36px;justify-content:space-between;align-items:flex-start}
+.foot-brand img{height:16px;width:auto;margin-bottom:18px}
+.foot-brand p{color:var(--dim);font-size:12.5px;max-width:420px;line-height:1.8}
+.foot-col{display:flex;flex-direction:column;gap:12px}
+.foot-col a{
+  font-family:var(--display);font-weight:700;font-size:10.5px;
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--dim);
+  transition:color .15s ease;
+}
+.foot-col a:hover{color:var(--white)}
+.eho{display:flex;align-items:center;gap:10px;margin-top:6px;color:var(--dim)}
+.eho svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;flex:none}
+.eho span{font-family:var(--display);font-weight:700;font-size:9px;letter-spacing:.18em;text-transform:uppercase;line-height:1.6}
+
+/* ---------- traveler ---------- */
+#traveler{
+  position:fixed;z-index:5;background:var(--red);border-radius:18%;
+  pointer-events:none;display:none;will-change:transform;
+}
+.traveler-on #traveler{display:block}
+/* the static docks stay painted; the traveler lands exactly on top of them,
+   so the page is factually correct in every static state (screenshots, print, AT) */
+.sr-dec{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* ---------- reveal default (no-js / reduced-motion safety) ---------- */
+.motion-off .hero .monument .g,.motion-off .hero .monument .dock,
+.motion-off .hero .hero-eyebrow,.motion-off .hero .hero-sub,.motion-off .hero .cta-row,
+.motion-off .row,.motion-off .card,.motion-off .managed h2,.motion-off .managed p,
+.motion-off .evidence-head,.motion-off .homes-head,.motion-off .stamp,
+.motion-off .closer h2,.motion-off .closer p,.motion-off .closer .btn{
+  opacity:1 !important;transform:none !important;transition:none !important;
+}
+.motion-off .stamp[hidden]{display:none}
+.motion-off .card{animation:none !important}
+.motion-off .grease path{stroke-dashoffset:0;animation:none !important}
+
+@media (max-width:640px){
+  .monument{font-size:clamp(3rem,18.5vw,6rem)}
+  .row{flex-direction:column;align-items:flex-start;gap:6px}
+  .row .what{text-align:left}
+  .btn{width:100%;justify-content:center}
+  .cta-row{flex-direction:column}
+  .homes-head{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <a class="lockup" href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing" aria-label="Atrium Management Company">
+    <img src="assets/Logo_Management-neg.svg" alt="Atrium Management Company" width="302" height="30">
+  </a>
+  <a class="head-link" href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
+    meetatrium.com
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero staged" id="hero" aria-label="Orlando Rentals">
+    <p class="label hero-eyebrow">You searched it. This is it.</p>
+
+    <h1 class="monument" id="monument">
+      <span class="line" data-fit>ORLANDO</span>
+      <span class="line" data-fit>RENTALS<span class="dock" id="dockHero" aria-hidden="true"></span></span>
+    </h1>
+    <div class="baseline-flash" id="flash" aria-hidden="true"></div>
+
+    <p class="hero-sub">
+      Not a clever name. An accurate one.
+      <span id="subCount">Homes for rent across Greater Orlando</span> —
+      every one of them managed by <strong>Atrium</strong>, the boutique firm behind 11,000+ doors.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn--solid" href="https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
+        <span id="ctaCount">Browse the homes</span><span class="p" aria-hidden="true">.</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
+        Meet Atrium<span class="p" aria-hidden="true">.</span>
+      </a>
+    </div>
+
+    <div class="tape" id="tape" aria-label="Listings ticker">
+      <div class="tape-track" id="tapeTrack"></div>
+    </div>
+  </section>
+
+  <!-- EVIDENCE -->
+  <section class="evidence" aria-labelledby="evidenceLabel">
+    <div class="wrap" style="padding:0">
+      <div class="evidence-head" data-io>
+        <p class="label" id="evidenceLabel">Supporting evidence</p>
+        <p>The name is accurate. Here's the paperwork.</p>
+      </div>
+      <div class="ledger">
+        <div class="row" data-io>
+          <div class="stat"><span data-count="11000" data-suffix="+">11,000+</span></div>
+          <div class="what">Doors under management</div>
+        </div>
+        <div class="row" data-io>
+          <div class="stat">4<span class="dock" id="dockRating" aria-hidden="true"></span><span class="sr-dec">.</span>6
+            <svg class="grease" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 7 C 22 3, 46 9, 62 6 S 92 4, 98 7"/></svg>
+          </div>
+          <div class="what">Google rating</div>
+        </div>
+        <div class="row" data-io>
+          <div class="stat"><span data-count="700" data-suffix="+">700+</span></div>
+          <div class="what">Google reviews</div>
+        </div>
+        <div class="row" data-io>
+          <div class="stat">Inc. 5000</div>
+          <div class="what">America's fastest-growing private companies</div>
+        </div>
+        <div class="row" data-io>
+          <div class="stat">No. 1
+            <svg class="grease" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 6 C 30 9, 60 3, 98 6"/></svg>
+          </div>
+          <div class="what">Best place to work &middot; Orlando Business Journal 2025</div>
+        </div>
+        <div class="row" data-io>
+          <div class="stat">FL + VA</div>
+          <div class="what">Where we operate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOMES -->
+  <section class="homes" id="homes" aria-labelledby="homesTitle">
+    <div class="homes-head" data-io>
+      <div>
+        <p class="label">The proof, listed</p>
+        <h2 id="homesTitle">The homes in question<span class="dock" id="dockGrid" aria-hidden="true"></span></h2>
+      </div>
+      <p class="stamp" id="stamp" hidden><span class="pulse" aria-hidden="true"></span><span id="stampText"></span></p>
+    </div>
+
+    <div class="grid" id="grid">
+      <noscript>
+        <p style="font-family:var(--body);color:var(--charcoal)">
+          Live listings load here. Browse every current home at
+          <a style="text-decoration:underline" href="https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">meetatrium.com/residential-listings</a>.
+        </p>
+      </noscript>
+    </div>
+
+    <div class="grid-foot">
+      <a class="btn btn--dark" href="https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
+        <span id="seeAll">See every home</span><span class="p" aria-hidden="true">.</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- MANAGED -->
+  <section class="managed" aria-labelledby="managedTitle">
+    <p class="label" data-io>Managed, not aggregated</p>
+    <h2 id="managedTitle" data-io>Eleven thousand doors. One standard<span class="dock" id="dockStandard" aria-hidden="true"></span></h2>
+    <div class="managed-cols" data-io>
+      <p><b>This is not an aggregator.</b> No scraped listings, no third-party feeds, no ghost inventory. Every home on this page has Atrium's name on the lease and Atrium's people behind the door.</p>
+      <p><b>Boutique by design.</b> We're headquartered in Orlando and manage homes across Florida and Virginia — tailored management for each property, not volume for its own sake.</p>
+      <p><b>One call, no runaround.</b> When you browse, you're browsing our portfolio. When you call, you're calling the company that actually runs the home.</p>
+    </div>
+    <p class="sig" data-io><img src="assets/Logo_Management.svg" alt="Atrium Management Company" width="302" height="30"></p>
+  </section>
+
+  <!-- CLOSER -->
+  <section class="closer" data-io aria-labelledby="closerTitle">
+    <h2 id="closerTitle">Meet Atrium<span class="dock" id="dockCloser" aria-hidden="true"></span></h2>
+    <p>The company behind the name.</p>
+    <a class="btn btn--red" href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
+      Meet the company
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="assets/Logo_Management-neg.svg" alt="Atrium Management Company" width="302" height="30">
+      <p>orlandorentals.com is operated by Atrium Management Company &middot; <a href="tel:+14075852721" style="text-decoration:underline">(407) 585-2721</a>. Listings shown are managed by Atrium; availability and pricing change in real time. &copy; 2026 Atrium Management Company. All rights reserved.</p>
+    </div>
+    <div class="foot-col">
+      <a href="https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">Browse rentals</a>
+      <a href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">Meet Atrium</a>
+      <div class="eho">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 3.4 10.4h2.2v9.4h12.8v-9.4h2.2L12 3.2z"/><path d="M8.6 12.6h6.8M8.6 15.8h6.8"/></svg>
+        <span>Equal Housing<br>Opportunity</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="traveler" aria-hidden="true"></div>
+
+<script>
+(function(){
+'use strict';
+var html=document.documentElement;
+html.classList.add('js');
+var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(REDUCED)html.classList.add('motion-off');
+
+var FEED='https://listings.meetatrium.com/listings.json';
+var HOMES_BASE='https://listings.meetatrium.com/homes/';
+var METRO=['Orlando','Winter Park','Winter Springs','Maitland','Casselberry','Altamonte Springs','Apopka','Ocoee','Winter Garden','Kissimmee','Sanford','Oviedo','Longwood','Lake Mary','Deltona','DeLand','DeBary','Debary','Orange City','Saint Cloud','St. Cloud','Clermont','Davenport','Eustis','Mount Dora','Tavares','Sorrento','Groveland','Minneola','Haines City'];
+
+/* ---------- monument: split glyphs + fit-to-width ---------- */
+var hero=document.getElementById('hero');
+var lines=[].slice.call(document.querySelectorAll('.monument .line'));
+lines.forEach(function(line){
+  var out=[],i=0;
+  [].slice.call(line.childNodes).forEach(function(node){
+    if(node.nodeType===3){
+      node.textContent.split('').forEach(function(ch){
+        var s=document.createElement('span');
+        s.className='g';s.textContent=ch;out.push(s);
+      });
+    }else out.push(node);
+  });
+  line.textContent='';
+  out.forEach(function(el){line.appendChild(el)});
+});
+var glyphs=[].slice.call(document.querySelectorAll('.monument .g'));
+glyphs.forEach(function(g,i){
+  g.style.setProperty('--i',i);
+  var mid=(glyphs.length-1)/2;
+  g.style.setProperty('--dx',((i-mid)*2.6)+'vw');
+});
+
+function placeFlash(){
+  var flash=document.getElementById('flash');
+  var r=lines[1].getBoundingClientRect(),h=hero.getBoundingClientRect();
+  flash.style.top=(r.bottom-h.top-4)+'px';
+}
+function fitLines(){
+  var pad=hero?parseFloat(getComputedStyle(hero).paddingLeft):0;
+  var avail=window.innerWidth-2*pad;
+  var mono=document.getElementById('monument');
+  lines.forEach(function(line){
+    line.style.fontSize='';
+    var w=line.getBoundingClientRect().width;
+    if(w>0){
+      var cur=parseFloat(getComputedStyle(mono).fontSize);
+      var next=Math.min(cur*avail/w, cur*2.2);
+      line.style.fontSize=next+'px';
+    }
+  });
+  /* height guard: full-bleed only when the hero still fits the viewport,
+     so the ticker tape stays pinned above the fold */
+  var over=hero.scrollHeight-window.innerHeight;
+  if(over>0){
+    var monH=mono.getBoundingClientRect().height;
+    var k=Math.max(.55,(monH-over)/monH);
+    lines.forEach(function(line){
+      line.style.fontSize=(parseFloat(line.style.fontSize)*k)+'px';
+    });
+  }
+  placeFlash();
+}
+
+var arrived=false;
+function arrive(){
+  if(arrived)return;arrived=true;
+  fitLines();
+  if(REDUCED){hero.classList.remove('staged');return;}
+  void hero.offsetWidth; /* commit staged styles before revealing */
+  hero.classList.add('set');
+  var lastDelay=glyphs.length*35+1050;
+  setTimeout(function(){hero.classList.add('stamped')},Math.max(900,lastDelay-350));
+  setTimeout(function(){hero.classList.add('live');startTraveler()},Math.max(1250,lastDelay-50));
+}
+if(document.fonts&&document.fonts.ready){
+  document.fonts.ready.then(function(){arrive();fitLines();});
+  document.fonts.addEventListener&&document.fonts.addEventListener('loadingdone',fitLines);
+  setTimeout(arrive,1200); /* safety: never leave the hero hidden */
+  setTimeout(fitLines,2500); /* late-font belt and braces */
+}else arrive();
+var rT;window.addEventListener('resize',function(){clearTimeout(rT);rT=setTimeout(fitLines,150)});
+
+/* ---------- intersection reveals ---------- */
+var io=null;
+if('IntersectionObserver' in window){
+  io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
+        if(e.target.querySelector)countUp(e.target);}
+    });
+  },{threshold:.25});
+}
+function observe(el){
+  if(io)io.observe(el);
+  else el.classList.add('in');
+}
+[].slice.call(document.querySelectorAll('.row,[data-io]')).forEach(observe);
+
+/* failsafe: nothing in the first viewport may stay hidden, whatever happens to IO */
+setTimeout(function(){
+  [].slice.call(document.querySelectorAll('.row,.card,[data-io]')).forEach(function(el){
+    if(!el.classList.contains('in') && el.getBoundingClientRect().top<window.innerHeight){
+      el.classList.add('in');countUp(el);
+    }
+  });
+},5000);
+
+/* ---------- odometer count-up ---------- */
+function countUp(scope){
+  [].slice.call(scope.querySelectorAll('[data-count]')).forEach(function(el){
+    if(el._done)return;el._done=true;
+    if(REDUCED)return;
+    var target=+el.getAttribute('data-count'),suf=el.getAttribute('data-suffix')||'';
+    var t0=null,settled=false;
+    function tick(t){
+      if(settled)return;
+      if(!t0)t0=t;
+      var p=Math.min(1,(t-t0)/900);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased).toLocaleString('en-US')+suf;
+      if(p<1)requestAnimationFrame(tick);else settled=true;
+    }
+    requestAnimationFrame(tick);
+    /* frames can stall in background tabs — the true value always lands */
+    setTimeout(function(){
+      settled=true;
+      el.textContent=target.toLocaleString('en-US')+suf;
+    },1100);
+  });
+}
+
+/* ---------- the traveling period ----------
+   Activated only after the hero arrival lands, so it never precedes the stamp.
+   The static docks stay painted underneath — the traveler covers them exactly
+   when docked, and in transit it shrinks and fades to a runner dot.
+   All positions derive from scroll state (never per-frame increments), and the
+   rAF loop idles out 250ms after the last scroll/resize. */
+var traveler=document.getElementById('traveler');
+var travelerOn=false;
+function startTraveler(){
+  if(travelerOn||REDUCED)return;travelerOn=true;
+  html.classList.add('traveler-on');
+  var docks=['dockHero','dockRating','dockGrid','dockStandard','dockCloser']
+    .map(function(id){return document.getElementById(id)});
+  var lastMove=0,running=false;
+  function smooth(p){return p*p*(3-2*p)}
+  function frame(){
+    var focus=window.innerHeight*.45;
+    var rects=docks.map(function(d){return d.getBoundingClientRect()});
+    var i=0;
+    for(var k=0;k<rects.length-1;k++){
+      if(rects[k].top<focus)i=k;
+    }
+    var a=rects[i],b=rects[Math.min(i+1,rects.length-1)];
+    var span=(a.top-b.top);
+    var p=span!==0?Math.min(1,Math.max(0,(a.top-focus)/span)):0;
+    if(rects[0].top>=focus){p=0;a=rects[0];b=rects[0];}
+    var e=smooth(p);
+    var x=a.left+(b.left-a.left)*e;
+    var y=a.top+(b.top-a.top)*e;
+    var w=a.width+(b.width-a.width)*e;
+    var h=a.height+(b.height-a.height)*e;
+    var near=Math.min(p,1-p);                 /* 0 at a dock, .5 mid-flight */
+    var damp=1-smooth(Math.min(1,near*3.4));  /* 1 docked -> 0 in transit */
+    var s=.45+.55*damp;
+    traveler.style.opacity=(.4+.6*damp).toFixed(3);
+    traveler.style.transform='translate3d('+(x+w*(1-s)/2)+'px,'+(y+h*(1-s)/2)+'px,0)';
+    traveler.style.width=(w*s)+'px';
+    traveler.style.height=(h*s)+'px';
+    if(Date.now()-lastMove<250)requestAnimationFrame(frame);
+    else running=false;
+  }
+  function kick(){
+    lastMove=Date.now();
+    if(!running){running=true;requestAnimationFrame(frame);}
+  }
+  window.addEventListener('scroll',kick,{passive:true});
+  window.addEventListener('resize',kick);
+  traveler.style.left='0';traveler.style.top='0';
+  kick();
+}
+
+/* ---------- live feed ---------- */
+function money(v){return '$'+(+v).toLocaleString('en-US')}
+/* Date(0) = "now"; null = unknown (fail closed: unknowns get NO availability
+   claim and sort last, so upstream format drift can't mislabel the page) */
+function parseAvail(s){
+  if(!s)return null;
+  if(/now/i.test(s))return new Date(0);
+  var m=String(s).match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/);
+  if(m){var y=+m[3];if(y<100)y+=2000;return new Date(y,+m[1]-1,+m[2]);}
+  m=String(s).match(/(\d{4})-(\d{2})-(\d{2})/);
+  if(m)return new Date(+m[1],+m[2]-1,+m[3]);
+  return null;
+}
+function availTime(x){var d=parseAvail(x.available);return d?d.getTime():Infinity}
+function fmtAvail(d){
+  if(!d||d<=new Date())return null;
+  var o={month:'short',day:'numeric'};
+  if(d.getFullYear()!==new Date().getFullYear())o.year='numeric';
+  return d.toLocaleDateString('en-US',o).toUpperCase();
+}
+function fmtET(d,withDay){
+  var o={hour:'numeric',minute:'2-digit',timeZone:'America/New_York'};
+  if(withDay){o.month='short';o.day='numeric';}
+  return new Intl.DateTimeFormat('en-US',o).format(d);
+}
+
+var feedModified=null;
+fetch(FEED).then(function(r){
+  if(!r.ok)throw new Error(r.status);
+  feedModified=r.headers.get('Last-Modified');
+  return r.json();
+}).then(function(all){
+  var pool=all.filter(function(x){return METRO.indexOf(x.city)>-1 && x.photo && x.rent_val>0});
+  if(!pool.length)throw new Error('empty');
+  var n=pool.length;
+
+  /* count — hero claim only; the CTAs stay count-free because they lead to the
+     full portfolio on meetatrium.com, not an Orlando-only list */
+  document.getElementById('subCount').textContent=n+' homes for rent across Greater Orlando';
+
+  /* freshness stamp — the feed's own Last-Modified, not our render time */
+  var lm=feedModified?new Date(feedModified):null;
+  if(lm&&isNaN(lm))lm=null;
+  var dayFmt=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',dateStyle:'short'});
+  var stampText=lm
+    ?'Listings as of '+fmtET(lm,dayFmt.format(lm)!==dayFmt.format(new Date()))+' ET · direct from Atrium’s portfolio'
+    :'Checked '+fmtET(new Date())+' ET · direct from Atrium’s portfolio';
+  document.getElementById('stampText').textContent=stampText;
+  var stamp=document.getElementById('stamp');
+  stamp.hidden=false;
+  requestAnimationFrame(function(){stamp.classList.add('on')});
+
+  /* ticker */
+  var sorted=pool.slice().sort(function(a,b){
+    var ta=availTime(a),tb=availTime(b);
+    return ta===tb?0:ta-tb;
+  });
+  var tapeItems=sorted.slice(0,30);
+  var track=document.getElementById('tapeTrack');
+  function buildGroup(isClone){
+    var g=document.createElement('div');g.className='tape-group';
+    if(isClone)g.setAttribute('aria-hidden','true');
+    tapeItems.forEach(function(x){
+      var a=document.createElement('a');
+      a.href=HOMES_BASE+x.id+'.html';
+      if(isClone)a.tabIndex=-1;
+      var d=parseAvail(x.available);
+      var availDate=fmtAvail(d);
+      var availTxt=availDate?'avail '+availDate:(d?'available now':null);
+      var bd=x.beds?x.beds+' bd':'';
+      a.appendChild(document.createTextNode((x.street||x.address)+' '));
+      var b=document.createElement('b');
+      b.textContent='· '+(bd?bd+' · ':'')+money(x.rent_val)+(availTxt?' · '+availTxt:'');
+      a.appendChild(b);
+      g.appendChild(a);
+      var sep=document.createElement('span');sep.className='sep';sep.textContent='●';
+      sep.setAttribute('aria-hidden','true');
+      g.appendChild(sep);
+    });
+    return g;
+  }
+  track.appendChild(buildGroup(false));
+  track.appendChild(buildGroup(true));
+  var w=track.scrollWidth/2; /* forces layout; sync so the tape can never stay hidden */
+  track.style.setProperty('--tape-dur',Math.max(30,Math.round(w/75))+'s');
+  document.getElementById('tape').classList.add('on');
+
+  /* grid: soonest-available, max 2 per community, 12 cards
+     (12 divides evenly at 4/3/2/1 columns — no orphan row);
+     standalone homes get unique keys so scattered SF isn't capped as one bucket */
+  var perComm=Object.create(null),picked=[];
+  for(var i=0;i<sorted.length&&picked.length<12;i++){
+    var x=sorted[i],c=x.community||x.property||('solo-'+x.id);
+    perComm[c]=(perComm[c]||0)+1;
+    if(perComm[c]<=2)picked.push(x);
+  }
+  /* interleave: never two cards of the same community adjacent */
+  var cards=[];
+  while(picked.length){
+    var idx=picked.findIndex(function(x,j){
+      var prev=cards[cards.length-1];
+      return !prev||((x.community||x.property)!==(prev.community||prev.property));
+    });
+    if(idx<0)idx=0;
+    cards.push(picked.splice(idx,1)[0]);
+  }
+  var grid=document.getElementById('grid');
+  cards.forEach(function(x,idx){
+    var a=document.createElement('a');
+    a.className='card';a.href=HOMES_BASE+x.id+'.html';
+    a.style.animationDelay=(idx%3*70)+'ms';
+
+    var ph=document.createElement('div');ph.className='ph';
+    var img=document.createElement('img');
+    img.src=x.photo;img.loading='lazy';img.decoding='async';
+    img.alt=(x.street||x.address)+' — '+(x.specs||'');
+    img.width=800;img.height=600;
+    ph.appendChild(img);a.appendChild(ph);
+
+    var body=document.createElement('div');body.className='card-body';
+
+    var top=document.createElement('div');top.className='card-top';
+    var rent=document.createElement('div');rent.className='rent';
+    rent.textContent=money(x.rent_val);
+    var mo=document.createElement('span');mo.textContent=' /mo';rent.appendChild(mo);
+    top.appendChild(rent);
+    var avD=parseAvail(x.available);
+    var avTxt=fmtAvail(avD);
+    if(avTxt||avD){
+      var tag=document.createElement('span');
+      if(avTxt){tag.className='tag';tag.textContent='Avail '+avTxt;}
+      else{tag.className='tag tag--now';tag.textContent='Available now';}
+      top.appendChild(tag);
+    }
+    body.appendChild(top);
+
+    var addr=document.createElement('div');addr.className='addr';
+    addr.textContent=x.street||x.address;body.appendChild(addr);
+
+    var sp=document.createElement('div');sp.className='specs';
+    sp.textContent=(x.specs||'').replace(/Sq\. Ft\./i,'sq ft');body.appendChild(sp);
+
+    var cta=document.createElement('span');cta.className='card-cta';
+    cta.textContent='View this home';
+    var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');
+    var path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d','M5 12h14M13 6l6 6-6 6');svg.appendChild(path);
+    cta.appendChild(svg);body.appendChild(cta);
+
+    a.appendChild(body);grid.appendChild(a);
+    observe(a);
+  });
+}).catch(function(){
+  html.classList.add('nofeed');
+  document.getElementById('tape').style.display='none';
+  /* hero copy already carries the countless fallback; point the grid at the full list */
+  var p=document.createElement('p');
+  p.style.cssText='font-family:var(--body);color:var(--charcoal);font-size:15px';
+  p.appendChild(document.createTextNode('Live listings wouldn’t load just now. Browse every current home at '));
+  var a=document.createElement('a');
+  a.href='https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&utm_medium=referral&utm_campaign=orlando_rentals_landing';
+  a.style.textDecoration='underline';
+  a.textContent='meetatrium.com/residential-listings';
+  p.appendChild(a);
+  p.appendChild(document.createTextNode('.'));
+  document.getElementById('grid').appendChild(p);
+});
+})();
+</script>
+</body>
+</html>
