@@ -502,9 +502,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
     <div class="baseline-flash" id="flash" aria-hidden="true"></div>
 
     <p class="hero-sub">
-      Not a clever name. An accurate one. <strong>Atrium</strong> manages 11,000+ doors
-      across Florida and Virginia.
-      <span id="subCount">See what is actively available for rent across Greater Orlando.</span>
+      Not a clever name. An accurate one.
+      <span id="subCount">Actively available homes for rent across Greater Orlando</span> —
+      every one of them managed by <strong>Atrium</strong>, the boutique firm behind 11,000+ doors.
     </p>
 
     <div class="cta-row">
@@ -926,7 +926,7 @@ fetch(FEED).then(function(r){
 
   /* count — hero claim only; the CTAs stay count-free because they lead to the
      full portfolio on meetatrium.com, not an Orlando-only list */
-  document.getElementById('subCount').textContent=n+' homes are actively available for rent across Greater Orlando right now.';
+  document.getElementById('subCount').textContent=n+' actively available homes for rent across Greater Orlando';
 
   /* freshness stamp — the feed's own Last-Modified, not our render time */
   var lm=feedModified?new Date(feedModified):null;
