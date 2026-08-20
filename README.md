@@ -4,6 +4,15 @@ Landing page that funnels the exact-match domain **orlandorentals.com** into
 [meetatrium.com](https://www.meetatrium.com). One static page, no build step,
 no dependencies.
 
+**Two audiences, one page.** Renters get the hero, the live listings, and
+`/residential-listings`. Owners and investors get the `#owners` business-
+development lane ("You own the doors. We keep the ledger.") with a free rental
+analysis as the lead magnet, routed to `/contact` and the management pages. A
+quiet caps link under the hero CTAs ("Own a rental instead? Your ledger is
+below.") sends owner traffic down without competing with the renter path.
+Owner CTAs carry `utm_campaign=orlando_rentals_owners` so BD leads are
+separable from renter traffic in analytics.
+
 **Concept: "Full stop."** The domain is the headline — `ORLANDO RENTALS.` set
 as a fit-to-width Inter 800 monument, and the red period is the page's single
 brand device: it types itself in on arrival, then detaches and travels down the

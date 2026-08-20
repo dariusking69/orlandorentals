@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orlando Rentals | Atrium Management Company</title>
-<meta name="description" content="Orlando rental homes and apartments, every one managed by Atrium Management Company — the boutique firm behind 11,000+ doors, rated 4.6 stars across 700+ Google reviews. See what's available today.">
+<meta name="description" content="Orlando rental homes and apartments, every one managed by Atrium Management Company — the boutique firm behind 11,000+ doors, rated 4.6 stars across 700+ Google reviews. Renting? See what's available today. Own a rental? Get a free rental analysis.">
 <link rel="canonical" href="https://orlandorentals.com/">
 <link rel="icon" type="image/png" href="assets/favicon-A.png">
 <link rel="apple-touch-icon" href="assets/favicon-A.png">
@@ -12,13 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://orlandorentals.com/">
 <meta property="og:title" content="Orlando Rentals. Not a clever name. An accurate one.">
-<meta property="og:description" content="Real Orlando homes for rent, managed by Atrium Management Company — 11,000+ doors, 4.6 stars on Google.">
+<meta property="og:description" content="Real Orlando homes for rent, managed by Atrium Management Company — 11,000+ doors, 4.6 stars on Google. Own a rental? Get a free rental analysis.">
 <meta property="og:image" content="https://orlandorentals.com/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Orlando Rentals. Not a clever name. An accurate one.">
-<meta name="twitter:description" content="Real Orlando homes for rent, managed by Atrium Management Company — 11,000+ doors, 4.6 stars on Google.">
+<meta name="twitter:description" content="Real Orlando homes for rent, managed by Atrium Management Company — 11,000+ doors, 4.6 stars on Google. Own a rental? Get a free rental analysis.">
 <meta name="twitter:image" content="https://orlandorentals.com/assets/og.png">
 
 <script type="application/ld+json">
@@ -27,7 +27,7 @@
   "@type": "WebPage",
   "name": "Orlando Rentals",
   "url": "https://orlandorentals.com/",
-  "description": "Orlando rental homes and apartments managed by Atrium Management Company.",
+  "description": "Orlando rental homes and apartments managed by Atrium Management Company, and property management for owners and investors across Florida and Virginia.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Atrium Management Company",
@@ -354,6 +354,62 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .managed .sig{margin-top:clamp(40px,7vh,64px)}
 .managed .sig img{height:17px;width:auto}
 
+/* ---------- owners / BD lane ---------- */
+.owners{
+  padding:clamp(72px,11vh,130px) var(--pad);
+  border-top:1px solid var(--hairline);
+  scroll-margin-top:0;
+}
+.owners h2{
+  font-family:var(--display);font-weight:800;letter-spacing:-.035em;
+  text-transform:uppercase;font-size:clamp(1.9rem,5vw,3.7rem);line-height:1.04;
+  margin:18px 0 clamp(28px,4.5vh,46px);max-width:16ch;
+}
+.owners h2 .dock{width:.12em;height:.12em}
+.owner-cols{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:clamp(24px,3.4vw,48px);max-width:1150px;
+  border-top:1px solid var(--hairline);padding-top:clamp(26px,4vh,40px);
+}
+.owner-cols p{color:var(--dim);font-size:15.5px}
+.owner-cols b{
+  color:var(--white);font-weight:600;font-family:var(--display);
+  display:block;margin-bottom:7px;letter-spacing:-.01em;
+}
+.owners .cta-row{margin-top:clamp(30px,5vh,52px)}
+.owner-note{
+  margin-top:22px;color:var(--dim);font-size:13px;
+}
+.owner-note a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+.owner-note a:hover{color:var(--red)}
+.js .owners :is(.label,h2,.owner-cols,.cta-row,.owner-note){opacity:0;transform:translateY(16px)}
+.owners .in:is(.label,h2,.owner-cols,.cta-row,.owner-note){
+  opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out);
+}
+
+/* hero teaser — the quiet owner door, never competing with the renter CTAs */
+.hero-alt{
+  margin-top:22px;font-family:var(--display);font-weight:700;font-size:10.5px;
+  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--dim);
+}
+.hero-alt a{
+  color:var(--light);position:relative;padding-bottom:3px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.hero-alt a::after{
+  content:'';position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--red);
+  transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease-out);
+}
+.hero-alt a:hover{color:var(--white)}
+.hero-alt a:hover::after{transform:scaleX(1)}
+.hero-alt svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s var(--ease-out)}
+.hero-alt a:hover svg{transform:translateY(2px)}
+.js .hero.staged .hero-alt{opacity:0;transform:translateY(14px)}
+.js .hero.staged.live .hero-alt{
+  opacity:1;transform:none;
+  transition:opacity .6s ease,transform .6s var(--ease-out);transition-delay:.22s;
+}
+
 /* ---------- closer ---------- */
 .closer{
   padding:clamp(90px,16vh,170px) var(--pad);
@@ -402,6 +458,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .motion-off .hero .hero-eyebrow,.motion-off .hero .hero-sub,.motion-off .hero .cta-row,
 .motion-off .row,.motion-off .card,.motion-off .managed h2,.motion-off .managed p,
 .motion-off .evidence-head,.motion-off .homes-head,.motion-off .stamp,
+.motion-off .hero .hero-alt,
+.motion-off .owners .label,.motion-off .owners h2,.motion-off .owner-cols,
+.motion-off .owners .cta-row,.motion-off .owner-note,
 .motion-off .closer h2,.motion-off .closer p,.motion-off .closer .btn{
   opacity:1 !important;transform:none !important;transition:none !important;
 }
@@ -458,6 +517,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
       </a>
     </div>
 
+    <p class="hero-alt">
+      <a href="#owners">
+        Own a rental instead? See what yours should rent for.
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+    </p>
+
     <div class="tape" id="tape" aria-label="Listings ticker">
       <div class="tape-track" id="tapeTrack"></div>
     </div>
@@ -494,6 +560,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
             <svg class="grease" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 6 C 30 9, 60 3, 98 6"/></svg>
           </div>
           <div class="what">Best place to work &middot; Orlando Business Journal 2025</div>
+        </div>
+        <div class="row" data-io>
+          <div class="stat">SF &middot; MF &middot; CRE</div>
+          <div class="what">Single-family, multifamily, commercial &mdash; one company</div>
         </div>
         <div class="row" data-io>
           <div class="stat">FL + VA</div>
@@ -542,6 +612,37 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
     <p class="sig" data-io><img src="assets/Logo_Management.svg" alt="Atrium Management Company" width="302" height="30"></p>
   </section>
 
+  <!-- OWNERS / BD LANE -->
+  <section class="owners" id="owners" aria-labelledby="ownersTitle">
+    <p class="label" data-io>Owners + investors</p>
+    <h2 id="ownersTitle" data-io>You own the doors. We keep the ledger<span class="dock" id="dockOwners" aria-hidden="true"></span></h2>
+    <div class="owner-cols" data-io>
+      <p><b>The whole job.</b> Leasing, maintenance, renewals, collections, and a monthly owner statement. One company answers for the whole scope, instead of four vendors pointing at each other.</p>
+      <p><b>Scaled, not stretched.</b> One door or a hundred, single-family through multifamily, with teams that specialize in each. Monthly statements, portfolio-level reporting, and year-end documents your accountant can work from.</p>
+      <p><b>Exhibit A is free.</b> Send an address; we send back an estimated rent range and the comparables behind it. The work is shown, and it obligates you to nothing.</p>
+    </div>
+    <div class="cta-row" data-io>
+      <a class="btn btn--red" href="https://www.meetatrium.com/contact?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">
+        Get the analysis
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="https://www.meetatrium.com/single-family-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">
+        How we manage<span class="p" aria-hidden="true">.</span>
+      </a>
+    </div>
+    <p class="owner-note" data-io>
+      <b>What happens next:</b> send the property address through the form and a person from our
+      business development team follows up with an estimated rent range and the comparables
+      behind it. No cost, no obligation.
+      Prefer to talk? <a href="tel:+14075852721">(407) 585-2721</a>, or
+      <a href="mailto:info@atriummanagement.com?subject=Rental%20analysis%20request&amp;body=Property%20address%3A%20%0D%0AUnits%3A%20%0D%0ABest%20number%20to%20reach%20me%3A%20">email the address</a>.
+      Straight to your type:
+      <a href="https://www.meetatrium.com/single-family-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">single-family</a>,
+      <a href="https://www.meetatrium.com/multifamily-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">multifamily</a>, or
+      <a href="https://www.meetatrium.com/commercial-property-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">commercial</a> &mdash; across Florida and Virginia.
+    </p>
+  </section>
+
   <!-- CLOSER -->
   <section class="closer" data-io aria-labelledby="closerTitle">
     <h2 id="closerTitle">Meet Atrium<span class="dock" id="dockCloser" aria-hidden="true"></span></h2>
@@ -579,6 +680,26 @@ var html=document.documentElement;
 html.classList.add('js');
 var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(REDUCED)html.classList.add('motion-off');
+
+/* Deep links (#owners) anchor at parse time, but the monument refits and the
+   feed injects 12 cards afterwards — both move the target thousands of px.
+   Re-anchor after each layout shift, unless the visitor has taken over scrolling. */
+var pendingHash=(location.hash||'').slice(1);
+var userScrolled=false;
+if(pendingHash){
+  ['wheel','touchstart'].forEach(function(ev){
+    window.addEventListener(ev,function(){userScrolled=true},{passive:true,once:true});
+  });
+  window.addEventListener('keydown',function(e){
+    if(/^(Arrow|Page|Home|End)/.test(e.key)||e.key===' ')userScrolled=true;
+  },{once:true});
+  setTimeout(function(){pendingHash=''},8000);
+}
+function restoreHash(){
+  if(!pendingHash||userScrolled)return;
+  var el=document.getElementById(pendingHash);
+  if(el)el.scrollIntoView({behavior:'instant',block:'start'});
+}
 
 var FEED='https://listings.meetatrium.com/listings.json';
 var HOMES_BASE='https://listings.meetatrium.com/homes/';
@@ -636,6 +757,7 @@ function fitLines(){
     });
   }
   placeFlash();
+  restoreHash();
 }
 
 var arrived=false;
@@ -717,8 +839,9 @@ var travelerOn=false;
 function startTraveler(){
   if(travelerOn||REDUCED)return;travelerOn=true;
   html.classList.add('traveler-on');
-  var docks=['dockHero','dockRating','dockGrid','dockStandard','dockCloser']
-    .map(function(id){return document.getElementById(id)});
+  var docks=['dockHero','dockRating','dockGrid','dockStandard','dockOwners','dockCloser']
+    .map(function(id){return document.getElementById(id)})
+    .filter(Boolean);
   var lastMove=0,running=false;
   function smooth(p){return p*p*(3-2*p)}
   function frame(){
@@ -910,6 +1033,7 @@ fetch(FEED).then(function(r){
     a.appendChild(body);grid.appendChild(a);
     observe(a);
   });
+  restoreHash();
 }).catch(function(){
   html.classList.add('nofeed');
   document.getElementById('tape').style.display='none';
@@ -924,6 +1048,7 @@ fetch(FEED).then(function(r){
   p.appendChild(a);
   p.appendChild(document.createTextNode('.'));
   document.getElementById('grid').appendChild(p);
+  restoreHash();
 });
 })();
 </script>
