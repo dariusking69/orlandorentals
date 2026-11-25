@@ -2,10 +2,10 @@
 
 Landing page that funnels the exact-match domain **orlandorentals.com** into
 [meetatrium.com](https://www.meetatrium.com). One static page, no build step,
-no dependencies beyond Leaflet from unpkg for the map.
+no dependencies.
 
 **Two audiences, one page; owners first.** The hero has two buttons: renters
-go down to the map and list (`#homes`), and owners go straight to
+go down to the listings (`#homes`), and owners go straight to
 [meetatrium.com/free-rental-analysis](https://www.meetatrium.com/free-rental-analysis).
 The `#owners` business-development section ("Own a rental? Get a free rental
 analysis.") comes right after the hero, on white so it stands out, and its main
@@ -31,20 +31,8 @@ CORS-open, refreshed every 30 min) gives:
 
 - the live Greater-Orlando home count in the hero subhead, never hardcoded
 - a marquee ticker of real addresses/rents pinned to the hero
-- **the home finder**: a map (Leaflet + CARTO basemap, the same engine and key
-  as the listings widget on listings.meetatrium.com) beside a list of every
-  Greater-Orlando home, 20 at a time with "Show more". Zooming or dragging the
-  map narrows the list to the homes in view, like Zillow; "Show all of Greater
-  Orlando" resets it. Pins at one address are grouped into one dot; clicking a
-  dot zooms in, hovering a card highlights its dot.
-- **about 20 featured homes first**, then everything else (soonest available,
-  never two of one community side by side). A home is featured when its
-  listing has 8+ photos and its cover photo is an exterior. The Intranet's
-  Listing Photos page sorts floor plans from exteriors with a vision model; a
-  static page can't, so this one samples each cover's thumbnail on a canvas:
-  floor plans are mostly white and colourless, exteriors carry lawn, trees or
-  sky. On the 11/25 feed no floor plan or interior passed. Best-scoring first,
-  one per building.
+- 12 real listing cards (soonest available, max 2 per community, interleaved),
+  each linking to its detail page on `listings.meetatrium.com`
 - a freshness stamp from the feed's own Last-Modified header
   ("Listings as of h:mm ET")
 
@@ -54,7 +42,15 @@ the hero and the facts ledger. No count means the line is left out, never an
 old number.
 
 If the listings feed fails the page degrades cleanly: count-free copy, ticker
-and map hidden, the list falls back to a link to meetatrium.com's listings.
+hidden, grid falls back to the SEE-EVERY-HOME CTA.
+
+**Pending: the picks file.** Trey asked (11/25) for about 20 of the nicest
+homes, with exterior photos rather than floor plans, pinned first, and for a
+map whose zoom narrows the list, like Zillow. That is being built in the
+listings widget itself (dariusking69/atrium-listings issue #16), which will
+serve one picks file. Until its URL exists, this page keeps its own sample of
+12 cards above. When it does, the grid should read the picks file instead of
+choosing homes itself.
 
 ## Facts
 
@@ -74,8 +70,8 @@ Atrium public brand spec: monochrome (#121212 / #424245 / #E6E6E6 / #F5F5F7 /
 wide-tracked labels; 4px-radius CTAs. Logos are the real 2025 files in
 `assets/` (`Logo_Management-neg.svg` on dark, `Logo_Management.svg` on light),
 never redrawn. No emoji; SVG icons only. `prefers-reduced-motion` disables all
-motion. Listing photos show in full colour. `assets/og.png` (the link-preview
-image) states no numbers, so it never goes stale.
+motion. `assets/og.png` (the link-preview image) states no numbers, so it
+never goes stale.
 
 All outbound links carry
 `utm_source=orlandorentals.com&utm_medium=referral&utm_campaign=orlando_rentals_landing`
