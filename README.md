@@ -90,9 +90,9 @@ All outbound links carry
 `utm_source=orlandorentals.com&utm_medium=referral&utm_campaign=orlando_rentals_landing`
 (or `orlando_rentals_owners` on owner links).
 
-**The P.S.** A one-line "made with AI" note sits under the footer.
-`ps-options.html` (not linked, `noindex`) shows it next to a joke version for
-Trey to pick from; delete that file once he has.
+**The P.S.** A one-line joke under the footer says an AI helped build the
+site (Alex, 11/25: funny, not a disclaimer). Like every other line, it stays
+true: the maintenance team it mentions is the one the owner section lists.
 
 ## Hosting
 
