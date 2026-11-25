@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Orlando Rentals | Atrium Management Company</title>
-<meta name="description" content="Orlando rental homes and apartments, every one managed by Atrium Management Company — the boutique firm behind 11,000+ doors, rated 4.6 stars across 700+ Google reviews. Renting? See what's available today. Own a rental? Get a free rental analysis.">
+<title>Orlando Rentals | Homes for rent from Atrium Management Company</title>
+<meta name="description" content="Homes and apartments for rent across Greater Orlando, all managed by Atrium Management Company. Own a rental? Get a free rental analysis.">
 <link rel="canonical" href="https://orlandorentals.com/">
 <link rel="icon" type="image/png" href="assets/favicon-A.png">
 <link rel="apple-touch-icon" href="assets/favicon-A.png">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://orlandorentals.com/">
-<meta property="og:title" content="Orlando Rentals. Not a clever name. An accurate one.">
-<meta property="og:description" content="Real Orlando homes for rent, managed by Atrium Management Company — 11,000+ doors, 4.6 stars on Google. Own a rental? Get a free rental analysis.">
+<meta property="og:title" content="Orlando Rentals: homes for rent from Atrium Management Company">
+<meta property="og:description" content="Homes and apartments for rent across Greater Orlando, all managed by Atrium Management Company. Own a rental? Get a free rental analysis.">
 <meta property="og:image" content="https://orlandorentals.com/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Orlando Rentals. Not a clever name. An accurate one.">
-<meta name="twitter:description" content="Real Orlando homes for rent, managed by Atrium Management Company — 11,000+ doors, 4.6 stars on Google. Own a rental? Get a free rental analysis.">
+<meta name="twitter:title" content="Orlando Rentals: homes for rent from Atrium Management Company">
+<meta name="twitter:description" content="Homes and apartments for rent across Greater Orlando, all managed by Atrium Management Company. Own a rental? Get a free rental analysis.">
 <meta name="twitter:image" content="https://orlandorentals.com/assets/og.png">
 
 <script type="application/ld+json">
@@ -118,7 +118,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   display:inline-flex;align-items:center;gap:12px;
 }
 .label::before{content:'';width:22px;height:2px;background:var(--red);flex:none}
-.label--plain::before{display:none}
+/* keeps a heading's red period on the same line as its last word */
+.nw{white-space:nowrap}
 
 /* ---------- hero ---------- */
 .hero{
@@ -126,14 +127,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   display:flex;flex-direction:column;justify-content:center;
   padding:calc(clamp(20px,3.4vw,36px)*2 + 40px) var(--pad) 120px;
 }
-.hero-eyebrow{margin-bottom:clamp(18px,3vh,34px);color:var(--light)}
-.hero-eyebrow::before{background:var(--red)}
 
 .monument{
   font-family:var(--display);font-weight:800;line-height:.92;
   letter-spacing:-.04em;text-transform:uppercase;color:var(--white);
-  font-size:clamp(3.2rem,15.5vw,15rem);
+  font-size:clamp(3rem,10vw,9rem);
   user-select:none;
+}
+/* "We are" leads into the wordmark: big enough to read as part of the sentence */
+.monument .lead{
+  display:block;font-weight:700;text-transform:none;letter-spacing:-.02em;
+  font-size:clamp(1.5rem,3.1vw,2.9rem);line-height:1.1;color:var(--light);
+  margin-bottom:.32em;
 }
 .monument .line{display:block;width:max-content;white-space:nowrap}
 .monument .g{display:inline-block;will-change:transform,opacity}
@@ -162,13 +167,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 @keyframes flash{0%{transform:scaleX(0);opacity:1}60%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
 
 .hero-sub{
-  margin-top:clamp(24px,4vh,44px);max-width:600px;
+  margin-top:clamp(24px,4vh,44px);max-width:620px;
   color:var(--light);font-size:clamp(15px,1.25vw,17px);
 }
 .hero-sub strong{font-weight:600;color:var(--white)}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(24px,3.6vh,40px)}
-.js .hero.staged :is(.hero-eyebrow,.hero-sub,.cta-row){opacity:0;transform:translateY(14px)}
-.js .hero.staged.live :is(.hero-eyebrow,.hero-sub,.cta-row){
+.js .hero.staged :is(.monument .lead,.hero-sub,.cta-row){opacity:0;transform:translateY(14px)}
+.js .hero.staged.live :is(.monument .lead,.hero-sub,.cta-row){
   opacity:1;transform:none;
   transition:opacity .6s ease,transform .6s var(--ease-out);
 }
@@ -181,7 +186,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   letter-spacing:var(--track-cta);text-transform:uppercase;
   border-radius:4px;padding:17px 34px;display:inline-flex;align-items:center;gap:10px;
   position:relative;transition:transform .18s var(--ease-out),background .18s ease,color .18s ease;
-  white-space:nowrap;
+  white-space:nowrap;border:0;cursor:pointer;
 }
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
@@ -193,14 +198,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .btn:hover .p{transform:none;opacity:1}
 .btn--solid{background:var(--white);color:var(--black)}
 .btn--solid:hover{background:var(--light)}
-.btn--ghost{border:1.5px solid rgba(255,255,255,.55);color:var(--white)}
-.btn--ghost:hover{border-color:var(--white)}
+.btn--accent{background:var(--red);color:var(--white)}
+.btn--accent:hover{background:#d92f2f}
+.btn--line{background:transparent;border:1.5px solid var(--black);color:var(--black)}
+.btn--line:hover{background:var(--black);color:var(--white)}
 .btn--dark{background:var(--black);color:var(--white)}
 .btn--dark:hover{background:#000}
 .btn--red{background:var(--red);color:var(--white);font-size:19px;padding:20px 44px}
 .btn--red:hover{background:#d92f2f}
 .btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s var(--ease-out)}
 .btn:hover svg{transform:translateX(4px)}
+.btn--solid:hover svg.down{transform:translateY(3px)}
 
 /* ---------- ticker tape ---------- */
 .tape{
@@ -228,18 +236,62 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   .tape-track{animation:none}
 }
 
-/* ---------- evidence ledger ---------- */
-.evidence{padding:clamp(72px,11vh,130px) var(--pad);border-top:1px solid var(--hairline)}
-.evidence-head{display:flex;flex-direction:column;gap:10px;margin-bottom:clamp(36px,6vh,64px)}
+/* ---------- the red underline: marks the one key word or fact in a section ---------- */
+.grease{position:absolute;left:-2%;bottom:-14px;width:104%;height:14px;overflow:visible;pointer-events:none}
+.grease path{
+  fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;
+}
+.in .grease path{animation:draw .7s .35s var(--ease-out) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ---------- owners / BD lane ---------- */
+.owners{
+  background:var(--white);color:var(--black);
+  padding:clamp(72px,11vh,130px) var(--pad);
+}
+.owners .label{color:var(--charcoal)}
+.owners h2{
+  font-family:var(--display);font-weight:800;letter-spacing:-.035em;
+  text-transform:uppercase;font-size:clamp(1.9rem,5vw,3.7rem);line-height:1.06;
+  margin:18px 0 clamp(18px,3vh,28px);max-width:18ch;
+}
+.owners h2 .dock{width:.12em;height:.12em}
+.owners .key{position:relative;display:inline-block}
+.owners .key .grease{bottom:-.1em;height:.22em}
+.owner-lead{max-width:640px;color:var(--charcoal);font-size:clamp(16px,1.35vw,18px)}
+.owners .cta-row{margin-top:clamp(24px,4vh,36px)}
+.owner-cols{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:clamp(24px,3.4vw,48px);max-width:1150px;
+  border-top:1px solid var(--light);padding-top:clamp(26px,4vh,40px);
+  margin-top:clamp(40px,7vh,64px);
+}
+.owner-cols p{color:var(--charcoal);font-size:15.5px}
+.owner-cols b{
+  color:var(--black);font-weight:700;font-family:var(--display);
+  display:block;margin-bottom:7px;letter-spacing:-.01em;
+}
+.owner-note{margin-top:28px;color:var(--charcoal);font-size:14px;max-width:760px}
+.owner-note a{color:var(--black);text-decoration:underline;text-underline-offset:3px}
+.owner-note a:hover{color:var(--red)}
+.js .owners :is(.label,h2,.owner-lead,.owner-cols,.cta-row,.owner-note){opacity:0;transform:translateY(16px)}
+.owners .in:is(.label,h2,.owner-lead,.owner-cols,.cta-row,.owner-note){
+  opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out);
+}
+
+/* ---------- facts ledger ---------- */
+.evidence{padding:clamp(72px,11vh,130px) var(--pad)}
+.evidence-head{display:flex;flex-direction:column;gap:10px;margin-bottom:clamp(30px,5vh,52px)}
 .js :is(.evidence-head,.homes-head){opacity:0;transform:translateY(16px)}
 :is(.evidence-head,.homes-head).in{opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out)}
-.evidence-head p{color:var(--dim);font-size:15px}
 .ledger{border-top:1px solid var(--hairline)}
 .row{
   display:flex;align-items:baseline;justify-content:space-between;gap:24px;
   padding:clamp(20px,3.4vh,34px) 0;border-bottom:1px solid var(--hairline);
   position:relative;
 }
+.row[hidden]{display:none}
 .js .row{opacity:0;transform:translateY(16px)}
 .row.in{opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out)}
 .row .stat{
@@ -247,19 +299,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   font-size:clamp(2.2rem,5.6vw,4.3rem);line-height:1;color:var(--white);
   font-variant-numeric:tabular-nums;position:relative;white-space:nowrap;
 }
-.row .stat .dock{width:.11em;height:.11em;margin:0 .03em}
 .row .what{
   font-family:var(--display);font-weight:700;font-size:11px;
   letter-spacing:var(--track-label);text-transform:uppercase;color:var(--dim);
   text-align:right;line-height:1.9;
 }
-.grease{position:absolute;left:-2%;bottom:-14px;width:104%;height:14px;overflow:visible;pointer-events:none}
-.grease path{
-  fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;
-  stroke-dasharray:1;stroke-dashoffset:1;
-}
-.row.in .grease path{animation:draw .7s .35s var(--ease-out) forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
 
 /* ---------- homes ---------- */
 .homes{background:var(--mist);color:var(--black);padding:clamp(72px,11vh,130px) var(--pad)}
@@ -302,7 +346,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .card.in{opacity:1;transform:none;animation:card-in .65s var(--ease-out) backwards}
 @keyframes card-in{from{opacity:0;transform:translateY(22px)}}
 .card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(18,18,18,.14)}
-.card .ph{aspect-ratio:4/3;overflow:hidden;background:var(--light)}
+.card .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--light)}
+.badge{
+  position:absolute;left:10px;top:10px;background:var(--black);color:var(--white);
+  font-family:var(--display);font-weight:800;font-size:9px;line-height:1;
+  letter-spacing:.18em;text-transform:uppercase;padding:7px 9px;border-radius:3px;
+}
 .card .ph img{
   width:100%;height:100%;object-fit:cover;
   filter:grayscale(1) contrast(1.04);
@@ -343,92 +392,35 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   font-size:clamp(2rem,5.4vw,4rem);line-height:1.04;margin:18px 0 clamp(26px,4vh,40px);
   max-width:900px;
 }
+.managed h2 .dock{width:.12em;height:.12em}
 .managed-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(24px,3.4vw,48px);max-width:1100px}
-.managed p{color:var(--charcoal);font-size:15.5px}
-.managed p b{color:var(--black);font-weight:600}
+.managed-cols p{color:var(--charcoal);font-size:15.5px}
+.managed-cols p b{color:var(--black);font-weight:600}
+.managed-cols p a{text-decoration:underline;text-underline-offset:3px}
 .js .managed :is(h2,p){opacity:0;transform:translateY(16px)}
 .managed .in:is(h2,p),.managed .in :is(p){opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out)}
 .managed-cols.in p{opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out)}
 .managed-cols.in p:nth-child(2){transition-delay:.1s}
 .managed-cols.in p:nth-child(3){transition-delay:.2s}
-.managed .sig{margin-top:clamp(40px,7vh,64px)}
-.managed .sig img{height:17px;width:auto}
-
-/* ---------- owners / BD lane ---------- */
-.owners{
-  padding:clamp(72px,11vh,130px) var(--pad);
-  border-top:1px solid var(--hairline);
-  scroll-margin-top:0;
-}
-.owners h2{
-  font-family:var(--display);font-weight:800;letter-spacing:-.035em;
-  text-transform:uppercase;font-size:clamp(1.9rem,5vw,3.7rem);line-height:1.04;
-  margin:18px 0 clamp(28px,4.5vh,46px);max-width:16ch;
-}
-.owners h2 .dock{width:.12em;height:.12em}
-.owner-cols{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:clamp(24px,3.4vw,48px);max-width:1150px;
-  border-top:1px solid var(--hairline);padding-top:clamp(26px,4vh,40px);
-}
-.owner-cols p{color:var(--dim);font-size:15.5px}
-.owner-cols b{
-  color:var(--white);font-weight:600;font-family:var(--display);
-  display:block;margin-bottom:7px;letter-spacing:-.01em;
-}
-.owners .cta-row{margin-top:clamp(30px,5vh,52px)}
-.owner-note{
-  margin-top:22px;color:var(--dim);font-size:13px;
-}
-.owner-note a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
-.owner-note a:hover{color:var(--red)}
-.js .owners :is(.label,h2,.owner-cols,.cta-row,.owner-note){opacity:0;transform:translateY(16px)}
-.owners .in:is(.label,h2,.owner-cols,.cta-row,.owner-note){
-  opacity:1;transform:none;transition:opacity .6s ease,transform .7s var(--ease-out);
-}
-
-/* hero teaser — the quiet owner door, never competing with the renter CTAs */
-.hero-alt{
-  margin-top:22px;font-family:var(--display);font-weight:700;font-size:10.5px;
-  letter-spacing:var(--track-label);text-transform:uppercase;color:var(--dim);
-}
-.hero-alt a{
-  color:var(--light);position:relative;padding-bottom:3px;
-  display:inline-flex;align-items:center;gap:8px;
-}
-.hero-alt a::after{
-  content:'';position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--red);
-  transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease-out);
-}
-.hero-alt a:hover{color:var(--white)}
-.hero-alt a:hover::after{transform:scaleX(1)}
-.hero-alt svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s var(--ease-out)}
-.hero-alt a:hover svg{transform:translateY(2px)}
-.js .hero.staged .hero-alt{opacity:0;transform:translateY(14px)}
-.js .hero.staged.live .hero-alt{
-  opacity:1;transform:none;
-  transition:opacity .6s ease,transform .6s var(--ease-out);transition-delay:.22s;
-}
 
 /* ---------- closer ---------- */
 .closer{
   padding:clamp(90px,16vh,170px) var(--pad);
   display:flex;flex-direction:column;align-items:flex-start;gap:26px;
-  border-top:1px solid var(--hairline);
 }
 .closer h2{
   font-family:var(--display);font-weight:800;letter-spacing:-.04em;line-height:.95;
   text-transform:uppercase;font-size:clamp(2.6rem,9vw,7.5rem);
 }
 .closer h2 .dock{width:.12em;height:.12em}
-.closer p{color:var(--dim);font-size:16px}
+.closer p{color:var(--dim);font-size:16px;max-width:560px}
 .js .closer :is(h2,p,.btn){opacity:0;transform:translateY(18px)}
 .closer.in :is(h2,p,.btn){opacity:1;transform:none;transition:opacity .6s ease,transform .75s var(--ease-out)}
 .closer.in p{transition-delay:.1s}
 .closer.in .btn{transition-delay:.18s}
 
 /* ---------- footer ---------- */
-.site-foot{border-top:1px solid var(--hairline);padding:clamp(40px,7vh,64px) var(--pad)}
+.site-foot{border-top:1px solid var(--hairline);padding:clamp(40px,7vh,64px) var(--pad) 36px}
 .foot-grid{display:flex;flex-wrap:wrap;gap:36px;justify-content:space-between;align-items:flex-start}
 .foot-brand img{height:16px;width:auto;margin-bottom:18px}
 .foot-brand p{color:var(--dim);font-size:12.5px;max-width:420px;line-height:1.8}
@@ -442,24 +434,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .eho{display:flex;align-items:center;gap:10px;margin-top:6px;color:var(--dim)}
 .eho svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;flex:none}
 .eho span{font-family:var(--display);font-weight:700;font-size:9px;letter-spacing:.18em;text-transform:uppercase;line-height:1.6}
-
-/* ---------- traveler ---------- */
-#traveler{
-  position:fixed;z-index:5;background:var(--red);border-radius:18%;
-  pointer-events:none;display:none;will-change:transform;
+.ps{
+  margin-top:clamp(32px,5vh,48px);padding-top:18px;border-top:1px solid var(--hairline);
+  color:var(--dim);font-size:12px;line-height:1.7;
 }
-.traveler-on #traveler{display:block}
-/* the static docks stay painted; the traveler lands exactly on top of them,
-   so the page is factually correct in every static state (screenshots, print, AT) */
-.sr-dec{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.ps b{font-family:var(--display);font-weight:700;color:var(--light);letter-spacing:.04em;margin-right:4px}
 
 /* ---------- reveal default (no-js / reduced-motion safety) ---------- */
-.motion-off .hero .monument .g,.motion-off .hero .monument .dock,
-.motion-off .hero .hero-eyebrow,.motion-off .hero .hero-sub,.motion-off .hero .cta-row,
-.motion-off .row,.motion-off .card,.motion-off .managed h2,.motion-off .managed p,
-.motion-off .evidence-head,.motion-off .homes-head,.motion-off .stamp,
-.motion-off .hero .hero-alt,
-.motion-off .owners .label,.motion-off .owners h2,.motion-off .owner-cols,
+.motion-off .hero .monument .g,.motion-off .hero .monument .dock,.motion-off .hero .monument .lead,
+.motion-off .hero .hero-sub,.motion-off .hero .cta-row,
+.motion-off .row,.motion-off .managed h2,.motion-off .managed p,
+.motion-off .card,.motion-off .evidence-head,.motion-off .homes-head,.motion-off .stamp,
+.motion-off .owners .label,.motion-off .owners h2,.motion-off .owner-lead,.motion-off .owner-cols,
 .motion-off .owners .cta-row,.motion-off .owner-note,
 .motion-off .closer h2,.motion-off .closer p,.motion-off .closer .btn{
   opacity:1 !important;transform:none !important;transition:none !important;
@@ -469,10 +455,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .motion-off .grease path{stroke-dashoffset:0;animation:none !important}
 
 @media (max-width:640px){
-  .monument{font-size:clamp(3rem,18.5vw,6rem)}
   .row{flex-direction:column;align-items:flex-start;gap:6px}
   .row .what{text-align:left}
   .btn{width:100%;justify-content:center}
+  .btn--red{font-size:16px;padding:18px 20px}
   .cta-row{flex-direction:column}
   .homes-head{flex-direction:column;align-items:flex-start}
 }
@@ -493,82 +479,93 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 <main>
   <!-- HERO -->
   <section class="hero staged" id="hero" aria-label="Orlando Rentals">
-    <p class="label hero-eyebrow">We are</p>
-
     <h1 class="monument" id="monument">
+      <span class="lead">We are</span>
       <span class="line" data-fit>ORLANDO</span>
       <span class="line" data-fit>RENTALS<span class="dock" id="dockHero" aria-hidden="true"></span></span>
     </h1>
     <div class="baseline-flash" id="flash" aria-hidden="true"></div>
 
     <p class="hero-sub">
-      Not a clever name. An accurate one.
-      <span id="subCount">Actively available homes for rent across Greater Orlando</span> —
-      every one of them managed by <strong>Atrium</strong>, the boutique firm behind 11,000+ doors.
+      <span id="subCount">Homes for rent across Greater Orlando</span>, all managed by
+      <strong>Atrium Management Company</strong><span id="subDoors" hidden>, which manages
+      <span id="subDoorsN"></span> doors in Florida and Virginia</span>.
+      Own a rental? Find out what it should rent for, free.
     </p>
 
     <div class="cta-row">
-      <a class="btn btn--solid" href="https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
-        <span id="ctaCount">Browse the homes</span><span class="p" aria-hidden="true">.</span>
+      <a class="btn btn--solid" href="#homes">
+        See homes for rent
+        <svg class="down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+      <a class="btn btn--accent" href="https://www.meetatrium.com/free-rental-analysis?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">
+        Free rental analysis
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a class="btn btn--ghost" href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
-        Meet Atrium<span class="p" aria-hidden="true">.</span>
-      </a>
     </div>
-
-    <p class="hero-alt">
-      <a href="#owners">
-        Own a rental instead? See what yours should rent for.
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-      </a>
-    </p>
 
     <div class="tape" id="tape" aria-label="Listings ticker">
       <div class="tape-track" id="tapeTrack"></div>
     </div>
   </section>
 
-  <!-- EVIDENCE -->
+  <!-- OWNERS / BD LANE: first after the hero, because owners are the lane that matters most -->
+  <section class="owners" id="owners" aria-labelledby="ownersTitle">
+    <p class="label" data-io>Owners + investors</p>
+    <h2 id="ownersTitle" data-io>Own a rental? Get a <span class="key">free<svg class="grease" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 7 C 22 3, 46 9, 62 6 S 92 4, 98 7"/></svg></span> rental <span class="nw">analysis<span class="dock" id="dockOwners" aria-hidden="true"></span></span></h2>
+    <p class="owner-lead" data-io>Send us the address. We&rsquo;ll send back an estimated rent range and the comparable rentals behind it. No cost, no obligation.</p>
+    <div class="cta-row" data-io>
+      <a class="btn btn--red" href="https://www.meetatrium.com/free-rental-analysis?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">
+        Get my free rental analysis
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn--line" href="https://www.meetatrium.com/single-family-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">
+        How we manage<span class="p" aria-hidden="true">.</span>
+      </a>
+    </div>
+    <div class="owner-cols" data-io>
+      <p><b>Full-service management.</b> Leasing, maintenance, renewals, rent collection and a monthly owner statement, all from one company.</p>
+      <p><b>Any size portfolio.</b> One house or a hundred units: single-family, multifamily and commercial, with a team for each.</p>
+      <p><b>Reports your accountant can use.</b> Monthly statements, portfolio-level reporting and year-end documents.</p>
+    </div>
+    <p class="owner-note" data-io>
+      Prefer to talk? Call <a href="tel:+14075852721">(407) 585-2721</a> or
+      <a href="mailto:info@atriummanagement.com?subject=Rental%20analysis%20request&amp;body=Property%20address%3A%20%0D%0AUnits%3A%20%0D%0ABest%20number%20to%20reach%20me%3A%20">email us the address</a>.
+      More on
+      <a href="https://www.meetatrium.com/single-family-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">single-family</a>,
+      <a href="https://www.meetatrium.com/multifamily-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">multifamily</a> and
+      <a href="https://www.meetatrium.com/commercial-property-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">commercial</a>
+      management in Florida and Virginia.
+    </p>
+  </section>
+
+  <!-- FACTS: only what the master fact sheet or meetatrium.com states -->
   <section class="evidence" aria-labelledby="evidenceLabel">
-    <div class="wrap" style="padding:0">
-      <div class="evidence-head" data-io>
-        <p class="label" id="evidenceLabel">Supporting evidence</p>
-        <p>The name is accurate. Here's the paperwork.</p>
+    <div class="evidence-head" data-io>
+      <p class="label" id="evidenceLabel">Atrium at a glance</p>
+    </div>
+    <div class="ledger">
+      <div class="row" id="doorsRow" data-io hidden>
+        <div class="stat"><span id="doorsStat"></span>
+          <svg class="grease" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 7 C 22 3, 46 9, 62 6 S 92 4, 98 7"/></svg>
+        </div>
+        <div class="what">Doors under management, counted live</div>
       </div>
-      <div class="ledger">
-        <div class="row" data-io>
-          <div class="stat"><span data-count="11000" data-suffix="+">11,000+</span></div>
-          <div class="what">Doors under management</div>
-        </div>
-        <div class="row" data-io>
-          <div class="stat">4<span class="dock" id="dockRating" aria-hidden="true"></span><span class="sr-dec">.</span>6
-            <svg class="grease" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 7 C 22 3, 46 9, 62 6 S 92 4, 98 7"/></svg>
-          </div>
-          <div class="what">Google rating</div>
-        </div>
-        <div class="row" data-io>
-          <div class="stat"><span data-count="700" data-suffix="+">700+</span></div>
-          <div class="what">Google reviews</div>
-        </div>
-        <div class="row" data-io>
-          <div class="stat">Inc. 5000</div>
-          <div class="what">America's fastest-growing private companies</div>
-        </div>
-        <div class="row" data-io>
-          <div class="stat">No. 1
-            <svg class="grease" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 6 C 30 9, 60 3, 98 6"/></svg>
-          </div>
-          <div class="what">Best place to work &middot; Orlando Business Journal 2025</div>
-        </div>
-        <div class="row" data-io>
-          <div class="stat">SF &middot; MF &middot; CRE</div>
-          <div class="what">Single-family, multifamily, commercial &mdash; one company</div>
-        </div>
-        <div class="row" data-io>
-          <div class="stat">FL + VA</div>
-          <div class="what">Where we operate</div>
-        </div>
+      <div class="row" data-io>
+        <div class="stat">Inc. 5000</div>
+        <div class="what">America&rsquo;s fastest-growing private companies</div>
+      </div>
+      <div class="row" data-io>
+        <div class="stat">9 years</div>
+        <div class="what">Named a Best Place to Work, nine years running</div>
+      </div>
+      <div class="row" data-io>
+        <div class="stat">SF &middot; MF &middot; CRE</div>
+        <div class="what">Single-family, multifamily and commercial</div>
+      </div>
+      <div class="row" data-io>
+        <div class="stat">FL + VA</div>
+        <div class="what">Where we manage property</div>
       </div>
     </div>
   </section>
@@ -577,8 +574,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   <section class="homes" id="homes" aria-labelledby="homesTitle">
     <div class="homes-head" data-io>
       <div>
-        <p class="label">The proof, listed</p>
-        <h2 id="homesTitle">The homes in question<span class="dock" id="dockGrid" aria-hidden="true"></span></h2>
+        <p class="label">Homes for rent</p>
+        <h2 id="homesTitle">Homes for rent in Greater <span class="nw">Orlando<span class="dock" id="dockGrid" aria-hidden="true"></span></span></h2>
       </div>
       <p class="stamp" id="stamp" hidden><span class="pulse" aria-hidden="true"></span><span id="stampText"></span></p>
     </div>
@@ -602,53 +599,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 
   <!-- MANAGED -->
   <section class="managed" aria-labelledby="managedTitle">
-    <p class="label" data-io>Managed, not aggregated</p>
-    <h2 id="managedTitle" data-io>Eleven thousand doors. One standard<span class="dock" id="dockStandard" aria-hidden="true"></span></h2>
+    <p class="label" data-io>Why rent from Atrium</p>
+    <h2 id="managedTitle" data-io>Rent from the company that runs the <span class="nw">home<span class="dock" id="dockStandard" aria-hidden="true"></span></span></h2>
     <div class="managed-cols" data-io>
-      <p><b>This is not an aggregator.</b> No scraped listings, no third-party feeds, no ghost inventory. Every home on this page has Atrium's name on the lease and Atrium's people behind the door.</p>
-      <p><b>Boutique by design.</b> We're headquartered in Orlando and manage homes across Florida and Virginia — tailored management for each property, not volume for its own sake.</p>
-      <p><b>One call, no runaround.</b> When you browse, you're browsing our portfolio. When you call, you're calling the company that actually runs the home.</p>
+      <p><b>Our own listings.</b> Every home on this page is managed by Atrium. Nothing is pulled from other sites, and the list refreshes through the day as homes are rented.</p>
+      <p><b>Based in Orlando.</b> We&rsquo;re headquartered in Orlando and manage homes across Florida and Virginia.</p>
+      <p><b>One number to call.</b> Questions about a home? Call <a href="tel:+14075852721">(407) 585-2721</a> and you&rsquo;re talking to the company that manages it.</p>
     </div>
-    <p class="sig" data-io><img src="assets/Logo_Management.svg" alt="Atrium Management Company" width="302" height="30"></p>
-  </section>
-
-  <!-- OWNERS / BD LANE -->
-  <section class="owners" id="owners" aria-labelledby="ownersTitle">
-    <p class="label" data-io>Owners + investors</p>
-    <h2 id="ownersTitle" data-io>You own the doors. We keep the ledger<span class="dock" id="dockOwners" aria-hidden="true"></span></h2>
-    <div class="owner-cols" data-io>
-      <p><b>The whole job.</b> Leasing, maintenance, renewals, collections, and a monthly owner statement. One company answers for the whole scope, instead of four vendors pointing at each other.</p>
-      <p><b>Scaled, not stretched.</b> One door or a hundred, single-family through multifamily, with teams that specialize in each. Monthly statements, portfolio-level reporting, and year-end documents your accountant can work from.</p>
-      <p><b>Exhibit A is free.</b> Send an address; we send back an estimated rent range and the comparables behind it. The work is shown, and it obligates you to nothing.</p>
-    </div>
-    <div class="cta-row" data-io>
-      <a class="btn btn--red" href="https://www.meetatrium.com/contact?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">
-        Get the analysis
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn--ghost" href="https://www.meetatrium.com/single-family-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">
-        How we manage<span class="p" aria-hidden="true">.</span>
-      </a>
-    </div>
-    <p class="owner-note" data-io>
-      <b>What happens next:</b> send the property address through the form and a person from our
-      business development team follows up with an estimated rent range and the comparables
-      behind it. No cost, no obligation.
-      Prefer to talk? <a href="tel:+14075852721">(407) 585-2721</a>, or
-      <a href="mailto:info@atriummanagement.com?subject=Rental%20analysis%20request&amp;body=Property%20address%3A%20%0D%0AUnits%3A%20%0D%0ABest%20number%20to%20reach%20me%3A%20">email the address</a>.
-      Straight to your type:
-      <a href="https://www.meetatrium.com/single-family-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">single-family</a>,
-      <a href="https://www.meetatrium.com/multifamily-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">multifamily</a>, or
-      <a href="https://www.meetatrium.com/commercial-property-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">commercial</a> &mdash; across Florida and Virginia.
-    </p>
   </section>
 
   <!-- CLOSER -->
   <section class="closer" data-io aria-labelledby="closerTitle">
-    <h2 id="closerTitle">Meet Atrium<span class="dock" id="dockCloser" aria-hidden="true"></span></h2>
-    <p>The company behind the name.</p>
+    <h2 id="closerTitle">Meet <span class="nw">Atrium<span class="dock" id="dockCloser" aria-hidden="true"></span></span></h2>
+    <p>Atrium Management Company manages single-family homes, apartments and commercial property in Florida and Virginia.</p>
     <a class="btn btn--red" href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
-      Meet the company
+      Visit meetatrium.com
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
   </section>
@@ -661,7 +626,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
       <p>orlandorentals.com is operated by Atrium Management Company &middot; <a href="tel:+14075852721" style="text-decoration:underline">(407) 585-2721</a>. Listings shown are managed by Atrium; availability and pricing change in real time. &copy; 2026 Atrium Management Company. All rights reserved.</p>
     </div>
     <div class="foot-col">
-      <a href="https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">Browse rentals</a>
+      <a href="#homes">Homes for rent</a>
+      <a href="https://www.meetatrium.com/free-rental-analysis?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">Free rental analysis</a>
       <a href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">Meet Atrium</a>
       <div class="eho">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 3.4 10.4h2.2v9.4h12.8v-9.4h2.2L12 3.2z"/><path d="M8.6 12.6h6.8M8.6 15.8h6.8"/></svg>
@@ -669,9 +635,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
       </div>
     </div>
   </div>
+  <p class="ps" id="ps"><b>P.S.</b> This site was made with the help of AI. The homes on it are real, and they come straight from Atrium&rsquo;s own listings.</p>
 </footer>
-
-<div id="traveler" aria-hidden="true"></div>
 
 <script>
 (function(){
@@ -681,9 +646,9 @@ html.classList.add('js');
 var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(REDUCED)html.classList.add('motion-off');
 
-/* Deep links (#owners) anchor at parse time, but the monument refits and the
-   feed injects 12 cards afterwards — both move the target thousands of px.
-   Re-anchor after each layout shift, unless the visitor has taken over scrolling. */
+/* Deep links (#owners, #homes) anchor at parse time, but the monument refits and
+   the feed injects the list afterwards; both move the target. Re-anchor after
+   each layout shift, unless the visitor has taken over scrolling. */
 var pendingHash=(location.hash||'').slice(1);
 var userScrolled=false;
 if(pendingHash){
@@ -703,13 +668,17 @@ function restoreHash(){
 
 var FEED='https://listings.meetatrium.com/listings.json';
 var HOMES_BASE='https://listings.meetatrium.com/homes/';
+/* hand-picked featured homes, kept by the listings widget (atrium-listings PR #17) */
+var FEATURED='https://listings.meetatrium.com/featured.json';
+/* The Intranet's live door counter: the same number the master fact sheet uses */
+var DOORS='https://atriummanagement.ai/meetatrium/doors.json';
 var METRO=['Orlando','Winter Park','Winter Springs','Maitland','Casselberry','Altamonte Springs','Apopka','Ocoee','Winter Garden','Kissimmee','Sanford','Oviedo','Longwood','Lake Mary','Deltona','DeLand','DeBary','Debary','Orange City','Saint Cloud','St. Cloud','Clermont','Davenport','Eustis','Mount Dora','Tavares','Sorrento','Groveland','Minneola','Haines City'];
 
-/* ---------- monument: split glyphs + fit-to-width ---------- */
+/* ---------- monument: split glyphs + fit to a share of the width ---------- */
 var hero=document.getElementById('hero');
 var lines=[].slice.call(document.querySelectorAll('.monument .line'));
 lines.forEach(function(line){
-  var out=[],i=0;
+  var out=[];
   [].slice.call(line.childNodes).forEach(function(node){
     if(node.nodeType===3){
       node.textContent.split('').forEach(function(ch){
@@ -735,7 +704,10 @@ function placeFlash(){
 }
 function fitLines(){
   var pad=hero?parseFloat(getComputedStyle(hero).paddingLeft):0;
-  var avail=window.innerWidth-2*pad;
+  /* the wordmark takes about half the width on desktop (it used to fill it),
+     and most of it on a phone, so "We are" and the name read as one line of type */
+  var share=window.innerWidth<700?.9:.52;
+  var avail=(window.innerWidth-2*pad)*share;
   var mono=document.getElementById('monument');
   lines.forEach(function(line){
     line.style.fontSize='';
@@ -746,8 +718,7 @@ function fitLines(){
       line.style.fontSize=next+'px';
     }
   });
-  /* height guard: full-bleed only when the hero still fits the viewport,
-     so the ticker tape stays pinned above the fold */
+  /* height guard: keep the ticker tape pinned above the fold */
   var over=hero.scrollHeight-window.innerHeight;
   if(over>0){
     var monH=mono.getBoundingClientRect().height;
@@ -769,7 +740,7 @@ function arrive(){
   hero.classList.add('set');
   var lastDelay=glyphs.length*35+1050;
   setTimeout(function(){hero.classList.add('stamped')},Math.max(900,lastDelay-350));
-  setTimeout(function(){hero.classList.add('live');startTraveler()},Math.max(1250,lastDelay-50));
+  setTimeout(function(){hero.classList.add('live')},Math.max(1250,lastDelay-50));
 }
 if(document.fonts&&document.fonts.ready){
   document.fonts.ready.then(function(){arrive();fitLines();});
@@ -784,8 +755,7 @@ var io=null;
 if('IntersectionObserver' in window){
   io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
-        if(e.target.querySelector)countUp(e.target);}
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
     });
   },{threshold:.25});
 }
@@ -798,95 +768,23 @@ function observe(el){
 /* failsafe: nothing in the first viewport may stay hidden, whatever happens to IO */
 setTimeout(function(){
   [].slice.call(document.querySelectorAll('.row,.card,[data-io]')).forEach(function(el){
-    if(!el.classList.contains('in') && el.getBoundingClientRect().top<window.innerHeight){
-      el.classList.add('in');countUp(el);
-    }
+    if(!el.classList.contains('in') && el.getBoundingClientRect().top<window.innerHeight)el.classList.add('in');
   });
 },5000);
 
-/* ---------- odometer count-up ---------- */
-function countUp(scope){
-  [].slice.call(scope.querySelectorAll('[data-count]')).forEach(function(el){
-    if(el._done)return;el._done=true;
-    if(REDUCED)return;
-    var target=+el.getAttribute('data-count'),suf=el.getAttribute('data-suffix')||'';
-    var t0=null,settled=false;
-    function tick(t){
-      if(settled)return;
-      if(!t0)t0=t;
-      var p=Math.min(1,(t-t0)/900);
-      var eased=1-Math.pow(1-p,3);
-      el.textContent=Math.round(target*eased).toLocaleString('en-US')+suf;
-      if(p<1)requestAnimationFrame(tick);else settled=true;
-    }
-    requestAnimationFrame(tick);
-    /* frames can stall in background tabs — the true value always lands */
-    setTimeout(function(){
-      settled=true;
-      el.textContent=target.toLocaleString('en-US')+suf;
-    },1100);
-  });
-}
-
-/* ---------- the traveling period ----------
-   Activated only after the hero arrival lands, so it never precedes the stamp.
-   The static docks stay painted underneath — the traveler covers them exactly
-   when docked, and in transit it shrinks and fades to a runner dot.
-   All positions derive from scroll state (never per-frame increments), and the
-   rAF loop idles out 250ms after the last scroll/resize. */
-var traveler=document.getElementById('traveler');
-var travelerOn=false;
-function startTraveler(){
-  if(travelerOn||REDUCED)return;travelerOn=true;
-  html.classList.add('traveler-on');
-  var docks=['dockHero','dockRating','dockGrid','dockStandard','dockOwners','dockCloser']
-    .map(function(id){return document.getElementById(id)})
-    .filter(Boolean);
-  var lastMove=0,running=false;
-  function smooth(p){return p*p*(3-2*p)}
-  function frame(){
-    var rects=docks.map(function(d){return d.getBoundingClientRect()});
-    var sy=window.scrollY||window.pageYOffset||0;
-    var anchor=window.innerHeight*.45;
-    /* Scroll offset at which each dock becomes the docked one. Driven by scroll
-       position, not a viewport focus line: the hero period sits ABOVE the 45%
-       line at scroll-top, so a focus-line model starts it already in flight and
-       leaves it stranded next to the wordmark. sPos[0]=0 gives the hero dock
-       ownership of the top of the page. */
-    var sPos=rects.map(function(r){return Math.max(0,r.top+sy-anchor)});
-    sPos[0]=0;
-    var i=0;
-    for(var k=0;k<sPos.length-1;k++){
-      if(sy>=sPos[k])i=k;
-    }
-    var j=Math.min(i+1,rects.length-1);
-    var a=rects[i],b=rects[j];
-    var span=sPos[j]-sPos[i];
-    var p=span>0?Math.min(1,Math.max(0,(sy-sPos[i])/span)):0;
-    var e=smooth(p);
-    var x=a.left+(b.left-a.left)*e;
-    var y=a.top+(b.top-a.top)*e;
-    var w=a.width+(b.width-a.width)*e;
-    var h=a.height+(b.height-a.height)*e;
-    var near=Math.min(p,1-p);                 /* 0 at a dock, .5 mid-flight */
-    var damp=1-smooth(Math.min(1,near*3.4));  /* 1 docked -> 0 in transit */
-    var s=.45+.55*damp;
-    traveler.style.opacity=(.4+.6*damp).toFixed(3);
-    traveler.style.transform='translate3d('+(x+w*(1-s)/2)+'px,'+(y+h*(1-s)/2)+'px,0)';
-    traveler.style.width=(w*s)+'px';
-    traveler.style.height=(h*s)+'px';
-    if(Date.now()-lastMove<250)requestAnimationFrame(frame);
-    else running=false;
-  }
-  function kick(){
-    lastMove=Date.now();
-    if(!running){running=true;requestAnimationFrame(frame);}
-  }
-  window.addEventListener('scroll',kick,{passive:true});
-  window.addEventListener('resize',kick);
-  traveler.style.left='0';traveler.style.top='0';
-  kick();
-}
+/* ---------- live door count (no count = no claim, never a stale number) ---------- */
+fetch(DOORS).then(function(r){
+  if(!r.ok)throw new Error(r.status);
+  return r.json();
+}).then(function(d){
+  var n=+(d&&d.doors);
+  if(!(n>0))return;
+  var txt=(d.display&&/^[\d,]+$/.test(d.display))?d.display:n.toLocaleString('en-US');
+  document.getElementById('doorsStat').textContent=txt;
+  document.getElementById('doorsRow').hidden=false;
+  document.getElementById('subDoorsN').textContent=txt;
+  document.getElementById('subDoors').hidden=false;
+}).catch(function(){});
 
 /* ---------- live feed ---------- */
 function money(v){return '$'+(+v).toLocaleString('en-US')}
@@ -914,19 +812,42 @@ function fmtET(d,withDay){
   return new Intl.DateTimeFormat('en-US',o).format(d);
 }
 
+/* The same rule as the widget's featuredFirst() and check_featured.py live_picks():
+   a pick counts while it is still listed, has a rent, and still leads with the
+   photo that was picked (so a floor plan moved to the front never leads). Under
+   min_live live picks the file is stale and nothing is featured. The rule runs
+   on the whole file, as the widget's default view does; this page then shows
+   the Greater Orlando ones. */
+function livePicks(f,all){
+  if(!f||!Array.isArray(f.homes))return [];
+  var byId=Object.create(null),seen=Object.create(null),out=[];
+  all.forEach(function(x){byId[x.id]=x});
+  f.homes.forEach(function(h){
+    var x=h&&byId[h.id];
+    if(!x||seen[h.id]||!(x.rent_val>0))return;
+    var first=x.photo||(x.photos||[])[0]||'';
+    if(h.photo&&first!==h.photo)return;
+    seen[h.id]=1;out.push(x);
+  });
+  return out.length<(+f.min_live||12)?[]:out;
+}
+
 var feedModified=null;
-fetch(FEED).then(function(r){
+/* optional and tiny: fetched alongside the feed; any failure just means no picks */
+var picksReq=fetch(FEATURED).then(function(r){return r.ok?r.json():null}).catch(function(){return null});
+Promise.all([fetch(FEED).then(function(r){
   if(!r.ok)throw new Error(r.status);
   feedModified=r.headers.get('Last-Modified');
   return r.json();
-}).then(function(all){
+}),picksReq]).then(function(res){
+  var all=res[0],featured=livePicks(res[1],all);
   var pool=all.filter(function(x){return METRO.indexOf(x.city)>-1 && x.photo && x.rent_val>0});
   if(!pool.length)throw new Error('empty');
   var n=pool.length;
 
   /* count — hero claim only; the CTAs stay count-free because they lead to the
      full portfolio on meetatrium.com, not an Orlando-only list */
-  document.getElementById('subCount').textContent=n+' actively available homes for rent across Greater Orlando';
+  document.getElementById('subCount').textContent=n+' homes for rent across Greater Orlando right now';
 
   /* freshness stamp — the feed's own Last-Modified, not our render time */
   var lm=feedModified?new Date(feedModified):null;
@@ -975,12 +896,22 @@ fetch(FEED).then(function(r){
   track.style.setProperty('--tape-dur',Math.max(30,Math.round(w/75))+'s');
   document.getElementById('tape').classList.add('on');
 
-  /* grid: soonest-available, max 2 per community, 12 cards
-     (12 divides evenly at 4/3/2/1 columns — no orphan row);
+  /* grid: 12 cards (12 divides evenly at 4/3/2/1 columns — no orphan row).
+     The featured picks in Greater Orlando lead, in featured.json's order
+     (Trey, 11/25: the nicest homes first, then everything else); the rest are
+     soonest-available, max 2 per community.
      standalone homes get unique keys so scattered SF isn't capped as one bucket */
-  var perComm=Object.create(null),picked=[];
-  for(var i=0;i<sorted.length&&picked.length<12;i++){
+  var inPool=Object.create(null);
+  pool.forEach(function(x){inPool[x.id]=1});
+  var lead=featured.filter(function(x){return inPool[x.id]}).slice(0,12);
+  var taken=Object.create(null),perComm=Object.create(null),picked=[];
+  lead.forEach(function(x){
+    var c=x.community||x.property||('solo-'+x.id);
+    taken[x.id]=1;perComm[c]=(perComm[c]||0)+1;
+  });
+  for(var i=0;i<sorted.length&&lead.length+picked.length<12;i++){
     var x=sorted[i],c=x.community||x.property||('solo-'+x.id);
+    if(taken[x.id])continue;
     perComm[c]=(perComm[c]||0)+1;
     if(perComm[c]<=2)picked.push(x);
   }
@@ -994,6 +925,7 @@ fetch(FEED).then(function(r){
     if(idx<0)idx=0;
     cards.push(picked.splice(idx,1)[0]);
   }
+  cards=lead.concat(cards);
   var grid=document.getElementById('grid');
   cards.forEach(function(x,idx){
     var a=document.createElement('a');
@@ -1005,7 +937,12 @@ fetch(FEED).then(function(r){
     img.src=x.photo;img.loading='lazy';img.decoding='async';
     img.alt=(x.street||x.address)+' — '+(x.specs||'');
     img.width=800;img.height=600;
-    ph.appendChild(img);a.appendChild(ph);
+    ph.appendChild(img);
+    if(taken[x.id]){
+      var badge=document.createElement('span');badge.className='badge';badge.textContent='Featured';
+      ph.appendChild(badge);
+    }
+    a.appendChild(ph);
 
     var body=document.createElement('div');body.className='card-body';
 
