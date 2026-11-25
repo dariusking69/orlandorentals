@@ -31,8 +31,11 @@ CORS-open, refreshed every 30 min) gives:
 
 - the live Greater-Orlando home count in the hero subhead, never hardcoded
 - a marquee ticker of real addresses/rents pinned to the hero
-- 12 real listing cards (soonest available, max 2 per community, interleaved),
-  each linking to its detail page on `listings.meetatrium.com`
+- 12 real listing cards, each linking to its detail page on
+  `listings.meetatrium.com`. **Featured homes lead**, marked "Featured" (Trey,
+  11/25: the nicest homes first, exterior photos rather than floor plans, then
+  everything else). The rest are soonest available, max 2 per community,
+  interleaved.
 - a freshness stamp from the feed's own Last-Modified header
   ("Listings as of h:mm ET")
 
@@ -44,13 +47,23 @@ old number.
 If the listings feed fails the page degrades cleanly: count-free copy, ticker
 hidden, grid falls back to the SEE-EVERY-HOME CTA.
 
-**Pending: the picks file.** Trey asked (11/25) for about 20 of the nicest
-homes, with exterior photos rather than floor plans, pinned first, and for a
-map whose zoom narrows the list, like Zillow. That is being built in the
-listings widget itself (dariusking69/atrium-listings issue #16), which will
-serve one picks file. Until its URL exists, this page keeps its own sample of
-12 cards above. When it does, the grid should read the picks file instead of
-choosing homes itself.
+**Featured homes come from the listings widget.** The picks are hand-chosen
+in the listings repo (dariusking69/atrium-listings PR #17) and served at
+`https://listings.meetatrium.com/featured.json`, the same file
+meetatrium.com's listings widget uses (its map, where zooming narrows the
+list like Zillow, lives there too). This page applies the widget's rule:
+
+- a pick counts while it is still in `listings.json`, has a rent, and still
+  leads with the photo that was picked (so a floor plan moved to the front
+  never leads);
+- with fewer than `min_live` live picks in the whole file, nothing is
+  featured;
+- then the Greater Orlando picks lead the grid in the file's order. The file
+  covers the whole portfolio, so only some picks are in Orlando (9 of 22 on
+  11/25).
+
+If `featured.json` is missing or stale the grid is the plain sample. The rule
+has a test: run `node --test` from the repo root.
 
 ## Facts
 

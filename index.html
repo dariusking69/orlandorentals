@@ -346,7 +346,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .card.in{opacity:1;transform:none;animation:card-in .65s var(--ease-out) backwards}
 @keyframes card-in{from{opacity:0;transform:translateY(22px)}}
 .card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(18,18,18,.14)}
-.card .ph{aspect-ratio:4/3;overflow:hidden;background:var(--light)}
+.card .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--light)}
+.badge{
+  position:absolute;left:10px;top:10px;background:var(--black);color:var(--white);
+  font-family:var(--display);font-weight:800;font-size:9px;line-height:1;
+  letter-spacing:.18em;text-transform:uppercase;padding:7px 9px;border-radius:3px;
+}
 .card .ph img{
   width:100%;height:100%;object-fit:cover;
   filter:grayscale(1) contrast(1.04);
@@ -663,6 +668,8 @@ function restoreHash(){
 
 var FEED='https://listings.meetatrium.com/listings.json';
 var HOMES_BASE='https://listings.meetatrium.com/homes/';
+/* hand-picked featured homes, kept by the listings widget (atrium-listings PR #17) */
+var FEATURED='https://listings.meetatrium.com/featured.json';
 /* The Intranet's live door counter: the same number the master fact sheet uses */
 var DOORS='https://atriummanagement.ai/meetatrium/doors.json';
 var METRO=['Orlando','Winter Park','Winter Springs','Maitland','Casselberry','Altamonte Springs','Apopka','Ocoee','Winter Garden','Kissimmee','Sanford','Oviedo','Longwood','Lake Mary','Deltona','DeLand','DeBary','Debary','Orange City','Saint Cloud','St. Cloud','Clermont','Davenport','Eustis','Mount Dora','Tavares','Sorrento','Groveland','Minneola','Haines City'];
@@ -805,12 +812,35 @@ function fmtET(d,withDay){
   return new Intl.DateTimeFormat('en-US',o).format(d);
 }
 
+/* The same rule as the widget's featuredFirst() and check_featured.py live_picks():
+   a pick counts while it is still listed, has a rent, and still leads with the
+   photo that was picked (so a floor plan moved to the front never leads). Under
+   min_live live picks the file is stale and nothing is featured. The rule runs
+   on the whole file, as the widget's default view does; this page then shows
+   the Greater Orlando ones. */
+function livePicks(f,all){
+  if(!f||!Array.isArray(f.homes))return [];
+  var byId=Object.create(null),seen=Object.create(null),out=[];
+  all.forEach(function(x){byId[x.id]=x});
+  f.homes.forEach(function(h){
+    var x=h&&byId[h.id];
+    if(!x||seen[h.id]||!(x.rent_val>0))return;
+    var first=x.photo||(x.photos||[])[0]||'';
+    if(h.photo&&first!==h.photo)return;
+    seen[h.id]=1;out.push(x);
+  });
+  return out.length<(+f.min_live||12)?[]:out;
+}
+
 var feedModified=null;
-fetch(FEED).then(function(r){
+/* optional and tiny: fetched alongside the feed; any failure just means no picks */
+var picksReq=fetch(FEATURED).then(function(r){return r.ok?r.json():null}).catch(function(){return null});
+Promise.all([fetch(FEED).then(function(r){
   if(!r.ok)throw new Error(r.status);
   feedModified=r.headers.get('Last-Modified');
   return r.json();
-}).then(function(all){
+}),picksReq]).then(function(res){
+  var all=res[0],featured=livePicks(res[1],all);
   var pool=all.filter(function(x){return METRO.indexOf(x.city)>-1 && x.photo && x.rent_val>0});
   if(!pool.length)throw new Error('empty');
   var n=pool.length;
@@ -866,12 +896,22 @@ fetch(FEED).then(function(r){
   track.style.setProperty('--tape-dur',Math.max(30,Math.round(w/75))+'s');
   document.getElementById('tape').classList.add('on');
 
-  /* grid: soonest-available, max 2 per community, 12 cards
-     (12 divides evenly at 4/3/2/1 columns — no orphan row);
+  /* grid: 12 cards (12 divides evenly at 4/3/2/1 columns — no orphan row).
+     The featured picks in Greater Orlando lead, in featured.json's order
+     (Trey, 11/25: the nicest homes first, then everything else); the rest are
+     soonest-available, max 2 per community.
      standalone homes get unique keys so scattered SF isn't capped as one bucket */
-  var perComm=Object.create(null),picked=[];
-  for(var i=0;i<sorted.length&&picked.length<12;i++){
+  var inPool=Object.create(null);
+  pool.forEach(function(x){inPool[x.id]=1});
+  var lead=featured.filter(function(x){return inPool[x.id]}).slice(0,12);
+  var taken=Object.create(null),perComm=Object.create(null),picked=[];
+  lead.forEach(function(x){
+    var c=x.community||x.property||('solo-'+x.id);
+    taken[x.id]=1;perComm[c]=(perComm[c]||0)+1;
+  });
+  for(var i=0;i<sorted.length&&lead.length+picked.length<12;i++){
     var x=sorted[i],c=x.community||x.property||('solo-'+x.id);
+    if(taken[x.id])continue;
     perComm[c]=(perComm[c]||0)+1;
     if(perComm[c]<=2)picked.push(x);
   }
@@ -885,6 +925,7 @@ fetch(FEED).then(function(r){
     if(idx<0)idx=0;
     cards.push(picked.splice(idx,1)[0]);
   }
+  cards=lead.concat(cards);
   var grid=document.getElementById('grid');
   cards.forEach(function(x,idx){
     var a=document.createElement('a');
@@ -896,7 +937,12 @@ fetch(FEED).then(function(r){
     img.src=x.photo;img.loading='lazy';img.decoding='async';
     img.alt=(x.street||x.address)+' — '+(x.specs||'');
     img.width=800;img.height=600;
-    ph.appendChild(img);a.appendChild(ph);
+    ph.appendChild(img);
+    if(taken[x.id]){
+      var badge=document.createElement('span');badge.className='badge';badge.textContent='Featured';
+      ph.appendChild(badge);
+    }
+    a.appendChild(ph);
 
     var body=document.createElement('div');body.className='card-body';
 
