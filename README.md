@@ -91,8 +91,9 @@ All outbound links carry
 (or `orlando_rentals_owners` on owner links).
 
 **The P.S.** A one-line joke under the footer says an AI helped build the
-site (Alex, 11/25: funny, not a disclaimer). Like every other line, it stays
-true: the maintenance team it mentions is the one the owner section lists.
+site: "Yes, we slopped this site together with AI. Don't worry, the homes are
+real." (Alex, 11/25: funny, not a disclaimer.) The punchline is true: every home
+on the page comes live from Atrium's listings feed.
 
 ## Hosting
 
