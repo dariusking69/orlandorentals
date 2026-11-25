@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orlando Rentals | Homes for rent from Atrium Management Company</title>
+<meta name="description" content="Browse every home for rent across Greater Orlando managed by Atrium Management Company. Own a rental? Get a free rental analysis.">
+<!-- V2 is a side-by-side experiment with the live page (../). Kept out of search until it replaces it. -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://orlandorentals.com/">
+<link rel="icon" type="image/png" href="../assets/favicon-A.png">
+<link rel="apple-touch-icon" href="../assets/favicon-A.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://orlandorentals.com/">
+<meta property="og:title" content="Orlando Rentals: homes for rent from Atrium Management Company">
+<meta property="og:description" content="Browse every home for rent across Greater Orlando managed by Atrium Management Company. Own a rental? Get a free rental analysis.">
+<meta property="og:image" content="https://orlandorentals.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://listings.meetatrium.com" crossorigin>
+<link rel="preconnect" href="https://images.cdn.appfolio.com">
+
+<style>
+/* Atrium public brand: monochrome + red accent only, Inter display, Open Sans body,
+   caps-tracked labels, 4px CTAs. V2 runs light: photos of real homes carry the colour,
+   black is kept for the owners band and the footer. */
+:root{
+  --black:#121212;
+  --charcoal:#424245;
+  --fog:#e6e6e6;
+  --mist:#f5f5f7;
+  --white:#ffffff;
+  --red:#f13d3d;
+  --red-press:#d92f2f;
+  --dim:#a9a9ae;          /* secondary text on black, 7:1 */
+  --rule-dark:#2c2c2f;
+  --display:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Open Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(20px,5vw,72px);
+  --max:1400px;
+  --section:clamp(72px,12vh,136px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--white);color:var(--black);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--red);color:var(--white)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:4px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.nw{white-space:nowrap}
+[hidden]{display:none!important}
+
+/* the brand's full stop */
+.stop{display:inline-block;width:.13em;height:.13em;background:var(--red);border-radius:18%;margin-left:.05em;vertical-align:baseline}
+
+/* small caps-tracked labels, used only where they name a control or a value */
+.cap{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;
+  padding:17px 28px;border-radius:4px;border:0;cursor:pointer;text-decoration:none;white-space:nowrap;
+  transition:background-color .15s ease,color .15s ease,border-color .15s ease;
+}
+.btn--black{background:var(--black);color:var(--white)}
+.btn--black:hover{background:var(--charcoal)}
+.btn--red{background:var(--red);color:var(--white)}
+.btn--red:hover{background:var(--red-press)}
+.btn--line{background:transparent;color:var(--black);box-shadow:inset 0 0 0 1.5px var(--black)}
+.btn--line:hover{background:var(--black);color:var(--white)}
+.btn--line-light{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1.5px var(--white)}
+.btn--line-light:hover{background:var(--white);color:var(--black)}
+.btn--big{font-size:16px;padding:21px 36px}
+
+/* ---------- header ---------- */
+.top{max-width:var(--max);margin:0 auto;padding:clamp(18px,3vh,30px) var(--pad);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.top .logo img{height:clamp(15px,1.5vw,19px);width:auto}
+.top nav{display:flex;align-items:center;gap:clamp(16px,2.6vw,36px)}
+.top nav a{font-family:var(--display);font-weight:600;font-size:14px;text-decoration:none;padding:6px 0;background:linear-gradient(var(--red),var(--red)) left bottom/0 2px no-repeat;transition:background-size .2s ease}
+.top nav a:hover{background-size:100% 2px}
+.top nav .tel{font-variant-numeric:tabular-nums}
+
+/* ---------- hero ---------- */
+.hero{
+  max-width:var(--max);margin:0 auto;
+  padding:clamp(20px,6vh,72px) var(--pad) var(--section);
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:clamp(36px,5vw,84px);align-items:end;
+}
+.hero-copy{container-type:inline-size}
+/* no live featured home: one column, the wordmark still about half the width */
+.hero.solo{grid-template-columns:minmax(0,620px)}
+.wordmark{font-family:var(--display);font-weight:800;line-height:.9;letter-spacing:-.045em;text-transform:uppercase}
+.wordmark .lead{display:block;text-transform:none;font-weight:700;letter-spacing:-.025em;font-size:6cqi;line-height:1.1;margin-bottom:.3em;color:var(--charcoal)}
+.wordmark .line{display:block;font-size:20cqi;white-space:nowrap}
+.hero-sub{margin-top:clamp(22px,4vh,36px);max-width:34em;font-size:clamp(16px,1.3vw,18px);color:var(--charcoal)}
+.hero-sub b{color:var(--black);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,3.6vh,34px)}
+
+.hero-home{margin:0;min-width:0}
+.hero-home .frame{display:block;aspect-ratio:4/3;background:var(--mist);border-radius:4px;overflow:hidden;position:relative}
+.hero-home img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+.hero-home img.ok{opacity:1}
+.hero-home figcaption{margin-top:14px;font-size:14px;color:var(--charcoal);min-height:46px}
+.hero-home .cap-link{display:grid;grid-template-columns:1fr auto;gap:2px 20px;text-decoration:none}
+.hero-home .h-rent small{font-weight:600;font-size:12px;color:var(--charcoal)}
+.hero-home .h-street{font-family:var(--display);font-weight:700;font-size:15px;color:var(--black)}
+.hero-home .h-rent{font-family:var(--display);font-weight:800;font-size:15px;color:var(--black);text-align:right;font-variant-numeric:tabular-nums}
+.hero-home .h-go{text-align:right}
+.hero-home .cap-link:hover .h-street{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:4px}
+.badge{position:absolute;left:12px;top:12px;background:var(--black);color:var(--white);font-family:var(--display);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;line-height:1;padding:7px 9px;border-radius:3px}
+
+/* one moment of motion: the full stop lands when the page opens */
+@media (prefers-reduced-motion:no-preference){
+  .hero .wordmark .stop{animation:land .62s .45s both}
+  @keyframes land{
+    0%{opacity:0;transform:translateY(-1.6em);animation-timing-function:cubic-bezier(.55,0,.9,.45)}
+    60%{opacity:1;transform:translateY(0);animation-timing-function:cubic-bezier(.2,.8,.3,1)}
+    78%{transform:translateY(-.07em)}
+    100%{opacity:1;transform:translateY(0)}
+  }
+}
+
+/* ---------- owners ---------- */
+.owners{background:var(--black);color:var(--white)}
+.owners-in{
+  max-width:var(--max);margin:0 auto;padding:var(--section) var(--pad);
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+  grid-template-areas:"main points" "proof proof";
+  gap:clamp(40px,6vw,104px);
+}
+.owners-main{grid-area:main}
+.owners h2{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.98;font-size:clamp(2.3rem,5.4vw,5rem)}
+.owners-lead{margin-top:clamp(20px,3.4vh,30px);max-width:32em;font-size:clamp(17px,1.4vw,19px);color:var(--fog)}
+.owners .actions{margin-top:clamp(26px,4vh,40px);align-items:center;gap:14px 26px}
+.owners .tel{font-family:var(--display);font-weight:700;font-size:15px;text-decoration:none;color:var(--white);font-variant-numeric:tabular-nums;border-bottom:2px solid var(--red);padding-bottom:2px}
+.owners .tel:hover{color:var(--fog)}
+.owner-points{grid-area:points;list-style:none;align-self:end;border-top:1px solid var(--rule-dark)}
+.owner-points li{padding:20px 0;border-bottom:1px solid var(--rule-dark);color:var(--dim);font-size:15px}
+.owner-points b{display:block;font-family:var(--display);font-weight:700;color:var(--white);font-size:16px;margin-bottom:4px}
+.proof{grid-area:proof;max-width:62em;color:var(--dim);font-size:15px}
+.proof b{color:var(--white);font-weight:600;font-variant-numeric:tabular-nums}
+.proof a{color:var(--fog);text-underline-offset:3px}
+.proof a:hover{color:var(--white)}
+
+/* ---------- homes ---------- */
+.homes{max-width:var(--max);margin:0 auto;padding:var(--section) var(--pad)}
+.homes-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 40px;margin-bottom:clamp(30px,5vh,52px)}
+.homes h2{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.98;font-size:clamp(2.1rem,4.6vw,4.2rem);max-width:13em}
+.fresh{font-size:14px;color:var(--charcoal)}
+.fresh[hidden]{display:none}
+
+.browse{display:grid;grid-template-columns:292px minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:start}
+.filters{position:sticky;top:18px;display:grid;gap:26px}
+.filters fieldset{border:0;min-width:0}
+.filters legend,.filters .field>.cap{display:block;margin-bottom:10px}
+
+/* the price list: every size, how many homes, lowest rent. It is also the size filter. */
+.size-head{display:grid;grid-template-columns:1fr 3.2em 5.4em;gap:10px;padding:0 12px 6px;font-family:var(--display);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--charcoal);text-align:right}
+.size-head span:first-child{text-align:left}
+.sizes{display:grid;gap:2px;border-top:1px solid var(--fog);padding-top:4px}
+.size{position:relative;display:grid;grid-template-columns:1fr 3.2em 5.4em;gap:10px;align-items:baseline;padding:9px 12px;border-radius:4px;cursor:pointer;font-variant-numeric:tabular-nums;transition:background-color .12s ease}
+.size input{position:absolute;opacity:0;pointer-events:none}
+.size .nm{font-size:15px}
+.size .n{text-align:right;color:var(--charcoal);font-size:14px}
+.size .fr{text-align:right;font-family:var(--display);font-weight:700;font-size:14px}
+.size:hover{background:var(--mist)}
+.size.on{background:var(--black);color:var(--white)}
+.size.on .n{color:var(--fog)}
+.size.empty{opacity:.38;cursor:default}
+.size.empty:hover{background:none}
+.size:has(input:focus-visible){outline:2px solid var(--red);outline-offset:2px}
+.size .u{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+.seg{display:grid;grid-template-columns:auto auto 1fr;box-shadow:inset 0 0 0 1.5px var(--black);border-radius:4px;padding:3px;gap:3px}
+.seg label{position:relative;text-align:center;padding:9px 11px;border-radius:2px;cursor:pointer;font-family:var(--display);font-weight:600;font-size:13.5px;white-space:nowrap}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:hover{background:var(--mist)}
+.seg label.on{background:var(--black);color:var(--white)}
+.seg label:has(input:focus-visible){outline:2px solid var(--red);outline-offset:2px}
+
+.select{
+  width:100%;appearance:none;-webkit-appearance:none;background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%23121212' stroke-width='2.2'/%3E%3C/svg%3E") right 12px center/16px no-repeat;
+  border:1.5px solid var(--black);border-radius:4px;padding:11px 40px 11px 13px;font-size:15px;cursor:pointer;
+}
+.clear{justify-self:start;background:none;border:0;cursor:pointer;font-size:14px;text-decoration:underline;text-underline-offset:3px;color:var(--charcoal);padding:2px 0}
+.clear:hover{color:var(--black)}
+.clear[hidden]{display:none}
+
+.results-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-bottom:16px;margin-bottom:24px;border-bottom:1px solid var(--fog)}
+.count{font-family:var(--display);font-weight:700;font-size:17px;font-variant-numeric:tabular-nums}
+.sort{display:flex;align-items:center;gap:10px}
+.sort .select{width:auto;padding-top:8px;padding-bottom:8px;font-size:14px}
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:40px 24px}
+.home{display:block;text-decoration:none;min-width:0}
+.home .ph{position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--mist)}
+.home .ph img{width:100%;height:100%;object-fit:cover}
+.home-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:14px}
+.rent{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.rent small{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:0;color:var(--charcoal)}
+.avail{font-size:13px;color:var(--charcoal);white-space:nowrap}
+.avail.now{color:var(--black);font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.avail.now::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--red)}
+.street{font-family:var(--display);font-weight:700;font-size:15px;margin-top:3px;line-height:1.4}
+.home:hover .street{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:4px}
+.specs{font-size:14px;color:var(--charcoal);margin-top:2px}
+.where{font-size:14px;color:var(--charcoal)}
+
+.more{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:clamp(40px,6vh,60px)}
+.more[hidden]{display:none}
+.elsewhere{font-size:15px;color:var(--charcoal)}
+.elsewhere a{color:var(--black);text-underline-offset:3px}
+.elsewhere a:hover{text-decoration-color:var(--red)}
+.note{grid-column:1/-1;font-size:16px;color:var(--charcoal);max-width:36em}
+.note p+p,.note p+button{margin-top:14px}
+
+.why{margin-top:var(--section);border-top:1.5px solid var(--black);padding-top:clamp(28px,4vh,40px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(28px,4vw,64px)}
+.why h3{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.03em;line-height:1.02;font-size:clamp(1.5rem,2.4vw,2.2rem)}
+.why ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px 32px}
+.why li{font-size:15px;color:var(--charcoal)}
+.why b{display:block;font-family:var(--display);font-weight:700;color:var(--black);margin-bottom:4px}
+.why a{color:var(--black);text-underline-offset:3px}
+
+/* ---------- footer ---------- */
+.foot{background:var(--black);color:var(--white)}
+.foot-in{max-width:var(--max);margin:0 auto;padding:clamp(60px,10vh,100px) var(--pad) 32px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto;gap:40px;align-items:start}
+.foot-about img{height:18px;width:auto;margin-bottom:22px}
+.foot-about p{color:var(--dim);max-width:30em;font-size:15px;margin-bottom:24px}
+.foot-links{display:grid;gap:12px;align-content:start}
+.foot-links a{font-family:var(--display);font-weight:600;font-size:14px;text-decoration:none;color:var(--fog);justify-self:start}
+.foot-links a:hover{color:var(--white);text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:4px}
+.eho{display:flex;align-items:center;gap:10px;color:var(--dim)}
+.eho svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.6;flex:none}
+.eho span{font-family:var(--display);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;line-height:1.6}
+.foot-base{margin-top:clamp(40px,7vh,64px);padding-top:20px;border-top:1px solid var(--rule-dark)}
+.legal{color:var(--dim);font-size:13px;max-width:60em}
+.legal a{color:var(--fog);text-underline-offset:3px}
+.ps{margin-top:14px;color:var(--dim);font-size:13px}
+.ps b{font-family:var(--display);font-weight:700;color:var(--fog);letter-spacing:.04em;margin-right:5px}
+
+/* ---------- smaller screens ---------- */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;align-items:start}
+  .owners-in{grid-template-columns:1fr;grid-template-areas:"main" "points" "proof"}
+  .browse{grid-template-columns:1fr}
+  .filters{position:static;grid-template-columns:1fr 1fr;gap:20px 16px}
+  .filters .f-size{grid-column:1/-1}
+  .filters .f-type{grid-column:1/-1}
+  .size-head{display:none}
+  .sizes{grid-template-columns:repeat(3,1fr);gap:6px;border-top:0;padding-top:0}
+  .size{grid-template-columns:1fr;gap:1px;padding:9px 10px;box-shadow:inset 0 0 0 1px var(--fog)}
+  .size.on{box-shadow:none}
+  .size .nm{font-size:14px;font-weight:600;white-space:nowrap}
+  /* phones show name and lowest rent; the count stays for screen readers */
+  .size .n{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .size .fr{text-align:left;font-size:13px;font-weight:600}
+  .size .fr .u{position:static;width:auto;height:auto;clip-path:none}
+  .why{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-about{grid-column:1/-1}
+}
+@media (max-width:560px){
+  .top nav .tel{display:none}
+  .actions .btn{width:100%}
+  .sort .cap{display:none}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">
+    <img src="../assets/Logo_Management.svg" alt="Atrium Management Company" width="302" height="30">
+  </a>
+  <nav aria-label="On this page">
+    <a href="#homes">Homes for rent</a>
+    <a href="#owners">Owners</a>
+    <a class="tel" href="tel:+14075852721">(407) 585-2721</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-copy">
+      <h1 class="wordmark" id="heroTitle">
+        <span class="lead">We are</span>
+        <span class="line">Orlando</span>
+        <span class="line">Rentals<span class="stop" aria-hidden="true"></span></span>
+      </h1>
+      <p class="hero-sub"><span id="heroCount">Homes for rent across Greater Orlando</span>, every one managed by <b>Atrium Management Company</b>. Own a rental? Find out what it should rent for, free.</p>
+      <div class="actions">
+        <a class="btn btn--black" href="#homes">Browse homes</a>
+        <a class="btn btn--red" href="https://www.meetatrium.com/free-rental-analysis?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">Get a free rental analysis</a>
+      </div>
+    </div>
+
+    <!-- a live featured home; the box keeps its space so nothing below moves when it loads -->
+    <figure class="hero-home" id="heroHome">
+      <a class="frame" id="heroFrame" href="#homes" tabindex="-1" aria-hidden="true"><img id="heroImg" alt="" width="1440" height="1080"></a>
+      <figcaption id="heroCap"></figcaption>
+    </figure>
+  </section>
+
+  <section class="owners" id="owners" aria-labelledby="ownersTitle">
+    <div class="owners-in">
+      <div class="owners-main">
+        <h2 id="ownersTitle">Own a rental? Find out what it should rent <span class="nw">for<span class="stop" aria-hidden="true"></span></span></h2>
+        <p class="owners-lead">Send us the address. We&rsquo;ll send back an estimated rent range and the comparable rentals behind it. It&rsquo;s free, with no obligation.</p>
+        <div class="actions">
+          <a class="btn btn--red btn--big" href="https://www.meetatrium.com/free-rental-analysis?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">Get a free rental analysis</a>
+          <a class="tel" href="tel:+14075852721">Or call (407) 585-2721</a>
+        </div>
+      </div>
+      <ul class="owner-points">
+        <li><b>Full-service management</b>Leasing, maintenance, renewals, rent collection and a monthly owner statement, all from one company.</li>
+        <li><b>Any size portfolio</b>One house or a hundred units: single-family, multifamily and commercial, with a team for each.</li>
+        <li><b>Reports your accountant can use</b>Monthly statements, portfolio-level reporting and year-end documents.</li>
+      </ul>
+      <p class="proof">
+        <span id="doorsLine" hidden>Atrium manages <b id="doorsN"></b> doors in Florida and Virginia, counted live. </span>We&rsquo;ve made the Inc. 5000 and been named a Best Place to Work nine years running.
+        More on
+        <a href="https://www.meetatrium.com/single-family-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">single-family</a>,
+        <a href="https://www.meetatrium.com/multifamily-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">multifamily</a> and
+        <a href="https://www.meetatrium.com/commercial-property-management?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">commercial</a> management.
+      </p>
+    </div>
+  </section>
+
+  <section class="homes" id="homes" aria-labelledby="homesTitle">
+    <div class="homes-head">
+      <h2 id="homesTitle">Homes for rent in Greater <span class="nw">Orlando<span class="stop" aria-hidden="true"></span></span></h2>
+      <p class="fresh" id="fresh" hidden></p>
+    </div>
+
+    <div class="browse">
+      <form class="filters" id="filters" aria-label="Filter homes" hidden>
+        <fieldset class="f-size">
+          <legend class="cap">Size</legend>
+          <div class="size-head" aria-hidden="true"><span></span><span>Homes</span><span>From</span></div>
+          <div class="sizes" id="sizes">
+            <label class="size on" data-size="any"><input type="radio" name="size" value="any" checked><span class="nm">Any size</span><span class="n"><span class="v"></span><span class="u"> homes</span></span><span class="fr"><span class="u">from </span><span class="v"></span></span></label>
+            <label class="size" data-size="0"><input type="radio" name="size" value="0"><span class="nm">Studio</span><span class="n"><span class="v"></span><span class="u"> homes</span></span><span class="fr"><span class="u">from </span><span class="v"></span></span></label>
+            <label class="size" data-size="1"><input type="radio" name="size" value="1"><span class="nm">1 bedroom</span><span class="n"><span class="v"></span><span class="u"> homes</span></span><span class="fr"><span class="u">from </span><span class="v"></span></span></label>
+            <label class="size" data-size="2"><input type="radio" name="size" value="2"><span class="nm">2 bedrooms</span><span class="n"><span class="v"></span><span class="u"> homes</span></span><span class="fr"><span class="u">from </span><span class="v"></span></span></label>
+            <label class="size" data-size="3"><input type="radio" name="size" value="3"><span class="nm">3 bedrooms</span><span class="n"><span class="v"></span><span class="u"> homes</span></span><span class="fr"><span class="u">from </span><span class="v"></span></span></label>
+            <label class="size" data-size="4"><input type="radio" name="size" value="4"><span class="nm">4+ bedrooms</span><span class="n"><span class="v"></span><span class="u"> homes</span></span><span class="fr"><span class="u">from </span><span class="v"></span></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="f-type">
+          <legend class="cap">Type</legend>
+          <div class="seg" id="types">
+            <label class="on"><input type="radio" name="type" value="any" checked>Any</label>
+            <label><input type="radio" name="type" value="apartment">Apartments</label>
+            <label><input type="radio" name="type" value="house">Houses &amp; condos</label>
+          </div>
+        </fieldset>
+        <label class="field"><span class="cap">Area</span>
+          <select class="select" name="area" id="area"><option value="">All areas</option></select>
+        </label>
+        <label class="field"><span class="cap">Max rent</span>
+          <select class="select" name="max" id="max">
+            <option value="">No limit</option>
+            <option value="1500">$1,500 a month</option>
+            <option value="2000">$2,000 a month</option>
+            <option value="2500">$2,500 a month</option>
+            <option value="3000">$3,000 a month</option>
+            <option value="4000">$4,000 a month</option>
+          </select>
+        </label>
+        <button class="clear" type="reset" id="clear" hidden>Clear filters</button>
+      </form>
+
+      <div class="results">
+        <div class="results-bar" id="bar" hidden>
+          <p class="count" id="count" aria-live="polite"></p>
+          <label class="sort"><span class="cap">Sort</span>
+            <select class="select" id="sort" form="filters" name="sort">
+              <option value="featured">Featured first</option>
+              <option value="rent">Lowest rent</option>
+              <option value="soon">Available soonest</option>
+            </select>
+          </label>
+        </div>
+        <div class="list" id="list">
+          <div class="note" id="loading"><p>Loading homes from Atrium&rsquo;s listings&hellip;</p></div>
+          <noscript><div class="note"><p>Browse every current home at <a href="https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">meetatrium.com/residential-listings</a>.</p></div></noscript>
+        </div>
+        <div class="more" id="moreRow">
+          <button class="btn btn--line" type="button" id="more" hidden>Show more homes</button>
+          <p class="elsewhere">Looking outside Orlando? <a href="https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">See every Atrium home on meetatrium.com</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="why">
+      <h3>Rent from the company that runs the <span class="nw">home<span class="stop" aria-hidden="true"></span></span></h3>
+      <ul>
+        <li><b>Our own listings</b>Every home here is managed by Atrium. Nothing is pulled from other sites, and the list refreshes through the day as homes are rented.</li>
+        <li><b>Based in Orlando</b>We&rsquo;re headquartered in Orlando and manage homes across Florida and Virginia.</li>
+        <li><b>One number to call</b>Questions about a home? Call <a href="tel:+14075852721">(407) 585-2721</a> and you&rsquo;re talking to the company that manages it.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <img src="../assets/Logo_Management-neg.svg" alt="Atrium Management Company" width="302" height="30">
+        <p>Atrium Management Company manages single-family homes, apartments and commercial property in Florida and Virginia.</p>
+        <a class="btn btn--line-light" href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">Visit meetatrium.com</a>
+      </div>
+      <nav class="foot-links" aria-label="More">
+        <a href="#homes">Homes for rent</a>
+        <a href="https://www.meetatrium.com/free-rental-analysis?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_owners">Free rental analysis</a>
+        <a href="https://www.meetatrium.com/?utm_source=orlandorentals.com&amp;utm_medium=referral&amp;utm_campaign=orlando_rentals_landing">Meet Atrium</a>
+        <a href="tel:+14075852721">(407) 585-2721</a>
+      </nav>
+      <div class="eho">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 3.4 10.4h2.2v9.4h12.8v-9.4h2.2L12 3.2z"/><path d="M8.6 12.6h6.8M8.6 15.8h6.8"/></svg>
+        <span>Equal Housing<br>Opportunity</span>
+      </div>
+    </div>
+    <div class="foot-base">
+    <p class="legal">orlandorentals.com is operated by Atrium Management Company. Listings shown are managed by Atrium; availability and pricing change in real time. &copy; 2026 Atrium Management Company. All rights reserved.</p>
+    <p class="ps"><b>P.S.</b> Yes, we slopped this site together with AI. The homes we still manage the old-fashioned way.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+document.documentElement.classList.add('js');
+
+var FEED='https://listings.meetatrium.com/listings.json';
+var HOMES_BASE='https://listings.meetatrium.com/homes/';
+/* hand-picked featured homes, kept by the listings widget (atrium-listings PR #17) */
+var FEATURED='https://listings.meetatrium.com/featured.json';
+/* the Intranet's live door counter: the same number the master fact sheet uses */
+var DOORS='https://atriummanagement.ai/meetatrium/doors.json';
+var METRO=['Orlando','Winter Park','Winter Springs','Maitland','Casselberry','Altamonte Springs','Apopka','Ocoee','Winter Garden','Kissimmee','Sanford','Oviedo','Longwood','Lake Mary','Deltona','DeLand','DeBary','Debary','Orange City','Saint Cloud','St. Cloud','Clermont','Davenport','Eustis','Mount Dora','Tavares','Sorrento','Groveland','Minneola','Haines City'];
+var PAGE=12;
+
+/* pure:start (tests/v2_browse.test.mjs reads these functions straight from this file) */
+
+/* The same rule as the live page and the listings widget: a pick counts while it is
+   still listed, has a rent, and still leads with the photo that was picked. Under
+   min_live live picks the file is stale and nothing is featured. */
+function livePicks(f,all){
+  if(!f||!Array.isArray(f.homes))return [];
+  var byId=Object.create(null),seen=Object.create(null),out=[];
+  all.forEach(function(x){byId[x.id]=x});
+  f.homes.forEach(function(h){
+    var x=h&&byId[h.id];
+    if(!x||seen[h.id]||!(x.rent_val>0))return;
+    var first=x.photo||(x.photos||[])[0]||'';
+    if(h.photo&&first!==h.photo)return;
+    seen[h.id]=1;out.push(x);
+  });
+  return out.length<(+f.min_live||12)?[]:out;
+}
+
+/* the feed spells two towns two ways */
+function cityName(c){return c==='Saint Cloud'?'St. Cloud':c==='Debary'?'DeBary':c}
+
+/* size buckets: '0' studio, '1'..'3', '4' is four bedrooms or more */
+function sizeOf(x){var b=Math.floor(+x.beds||0);return b>=4?'4':String(Math.max(0,b))}
+
+/* mf false: an individually owned house, townhome or condo; mf true: a unit in an
+   apartment community. skipSize lets the price list count every size under the other filters */
+function matches(x,s,skipSize){
+  if(!skipSize&&s.size&&s.size!=='any'&&sizeOf(x)!==s.size)return false;
+  if(s.type==='house'&&x.mf!==false)return false;
+  if(s.type==='apartment'&&x.mf!==true)return false;
+  if(s.area&&cityName(x.city)!==s.area)return false;
+  if(s.max&&!(x.rent_val<=+s.max))return false;
+  return true;
+}
+
+/* Date(0) is "now"; null is unknown, which gets no availability claim and sorts last */
+function parseAvail(v){
+  if(!v)return null;
+  if(/now/i.test(v))return new Date(0);
+  var m=String(v).match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/);
+  if(m){var y=+m[3];if(y<100)y+=2000;return new Date(y,+m[1]-1,+m[2]);}
+  m=String(v).match(/(\d{4})-(\d{2})-(\d{2})/);
+  if(m)return new Date(+m[1],+m[2]-1,+m[3]);
+  return null;
+}
+function availTime(x){var d=parseAvail(x.available);return d?d.getTime():Infinity}
+
+/* Scattered houses all carry the community "Atrium Management Company", so each
+   house counts as its own; apartments group by their community. */
+function communityKey(x){
+  var c=x.community||x.property||'';
+  return (x.mf===false||!c||c==='Atrium Management Company')?'solo-'+x.id:c;
+}
+
+/* The default order: live featured picks first, in the file's order; then everything
+   else soonest-available, dealt out one per community per round so a single
+   apartment complex can't fill the first rows. */
+function homeOrder(pool,picks){
+  var inPool=Object.create(null),seen=Object.create(null),lead=[];
+  pool.forEach(function(x){inPool[x.id]=1});
+  (picks||[]).forEach(function(x){if(inPool[x.id]&&!seen[x.id]){seen[x.id]=1;lead.push(x)}});
+  var rest=pool.filter(function(x){return !seen[x.id]}).map(function(x,i){return {x:x,t:availTime(x),i:i}});
+  rest.sort(function(a,b){return a.t===b.t?a.i-b.i:(a.t<b.t?-1:1)});
+  var round=Object.create(null);
+  rest.forEach(function(o,i){var k=communityKey(o.x);round[k]=(round[k]||0)+1;o.r=round[k];o.i=i});
+  rest.sort(function(a,b){return a.r-b.r||a.i-b.i});
+  return lead.concat(rest.map(function(o){return o.x}));
+}
+
+function sortHomes(list,how,rank){
+  var out=list.slice();
+  if(how==='rent')out.sort(function(a,b){return a.rent_val-b.rent_val||availTime(a)-availTime(b)||rank[a.id]-rank[b.id]});
+  else if(how==='soon')out.sort(function(a,b){var d=availTime(a)-availTime(b);return (d===d&&d)||a.rent_val-b.rent_val||rank[a.id]-rank[b.id]});
+  else out.sort(function(a,b){return rank[a.id]-rank[b.id]});
+  return out;
+}
+/* pure:end */
+
+/* ---------- formatting ---------- */
+function money(v){return '$'+(+v).toLocaleString('en-US')}
+function bedsText(x){var b=Math.floor(+x.beds||0);return b===0?'Studio':b+(b===1?' bed':' beds')}
+function specsText(x){
+  var p=[bedsText(x)];
+  var ba=+x.baths;if(ba>0)p.push(ba+(ba===1?' bath':' baths'));
+  var sf=+x.sqft;if(sf>0)p.push(sf.toLocaleString('en-US')+' sq ft');
+  return p.join(', ');
+}
+function availText(x){
+  var d=parseAvail(x.available);
+  if(!d)return null;
+  if(d<=new Date())return {now:true,text:'Available now'};
+  var o={month:'short',day:'numeric'};
+  if(d.getFullYear()!==new Date().getFullYear())o.year='numeric';
+  return {now:false,text:'Available '+d.toLocaleDateString('en-US',o)};
+}
+function smallPhoto(u){return String(u).replace(/\/large\.(jpe?g|png)$/i,'/medium.$1')}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+
+/* ---------- live door count (no count = no claim, never a stale number) ---------- */
+fetch(DOORS).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+  var n=+(d&&d.doors);if(!(n>0))return;
+  document.getElementById('doorsN').textContent=(d.display&&/^[\d,]+$/.test(d.display))?d.display:n.toLocaleString('en-US');
+  document.getElementById('doorsLine').hidden=false;
+}).catch(function(){});
+
+/* ---------- homes ---------- */
+var form=document.getElementById('filters');
+var listEl=document.getElementById('list');
+var moreBtn=document.getElementById('more');
+var S={size:'any',type:'any',area:'',max:'',sort:'featured'};
+var pool=[],rank=Object.create(null),featuredIds=Object.create(null),current=[],shown=0;
+
+function readForm(){
+  var f=new FormData(form);
+  S.size=f.get('size')||'any';S.type=f.get('type')||'any';
+  S.area=f.get('area')||'';S.max=f.get('max')||'';S.sort=f.get('sort')||'featured';
+}
+
+function renderSizes(){
+  var b={any:[],'0':[],'1':[],'2':[],'3':[],'4':[]};
+  pool.forEach(function(x){if(matches(x,S,true)){b.any.push(x);b[sizeOf(x)].push(x)}});
+  [].forEach.call(document.querySelectorAll('.size'),function(row){
+    var k=row.getAttribute('data-size'),xs=b[k],input=row.querySelector('input');
+    var vals=row.querySelectorAll('.v');
+    vals[0].textContent=xs.length;
+    vals[1].textContent=xs.length?money(Math.min.apply(null,xs.map(function(x){return x.rent_val}))):'';
+    row.querySelectorAll('.u')[0].textContent=xs.length===1?' home':' homes';
+    row.querySelectorAll('.u')[1].textContent=xs.length?'from ':'';
+    var empty=!xs.length&&!input.checked;
+    row.classList.toggle('empty',empty);input.disabled=empty;
+    row.classList.toggle('on',input.checked);
+  });
+  [].forEach.call(document.querySelectorAll('.seg label'),function(l){l.classList.toggle('on',l.querySelector('input').checked)});
+  document.getElementById('clear').hidden=(S.size==='any'&&S.type==='any'&&!S.area&&!S.max);
+}
+
+function card(x){
+  var a=el('a','home');a.href=HOMES_BASE+x.id+'.html';
+  var ph=el('div','ph');
+  var img=document.createElement('img');
+  img.alt='';img.loading='lazy';img.decoding='async';img.width=512;img.height=384;
+  img.src=smallPhoto(x.photo);
+  img.srcset=smallPhoto(x.photo)+' 512w, '+x.photo+' 1440w';
+  img.sizes='(min-width:1200px) 320px, (min-width:981px) 30vw, (min-width:600px) 46vw, 92vw';
+  img.onerror=function(){if(img.src!==x.photo){img.removeAttribute('srcset');img.src=x.photo}};
+  ph.appendChild(img);
+  if(featuredIds[x.id])ph.appendChild(el('span','badge','Featured'));
+  a.appendChild(ph);
+  var top=el('div','home-top');
+  var rent=el('p','rent',money(x.rent_val));rent.appendChild(el('small',null,'/mo'));
+  top.appendChild(rent);
+  var av=availText(x);
+  if(av)top.appendChild(el('p','avail'+(av.now?' now':''),av.text));
+  a.appendChild(top);
+  a.appendChild(el('p','street',x.street||x.address));
+  a.appendChild(el('p','specs',specsText(x)));
+  var c=x.community||'';
+  a.appendChild(el('p','where',cityName(x.city)+(x.mf===false||!c||c==='Atrium Management Company'?'':', '+c.replace(/\s+/g,' '))));
+  return a;
+}
+
+function showMore(){
+  var next=current.slice(shown,shown+PAGE);
+  next.forEach(function(x){listEl.appendChild(card(x))});
+  shown+=next.length;
+  var left=current.length-shown;
+  moreBtn.hidden=left<=0;
+  moreBtn.textContent='Show '+Math.min(PAGE,left)+' more';
+}
+
+function renderList(){
+  current=sortHomes(pool.filter(function(x){return matches(x,S)}),S.sort,rank);
+  listEl.textContent='';shown=0;
+  var n=current.length;
+  document.getElementById('count').textContent=n+(n===1?' home':' homes');
+  if(!n){
+    var note=el('div','note');
+    note.appendChild(el('p',null,'No homes match all of these filters right now. Try another area or a higher budget.'));
+    var b=el('button','btn btn--line','Clear filters');b.type='button';
+    b.addEventListener('click',function(){form.reset()});
+    note.appendChild(b);listEl.appendChild(note);
+    moreBtn.hidden=true;return;
+  }
+  showMore();
+}
+
+function update(){readForm();renderSizes();renderList()}
+form.addEventListener('change',update);
+document.getElementById('sort').addEventListener('change',update);
+form.addEventListener('reset',function(){setTimeout(update,0)});
+form.addEventListener('submit',function(e){e.preventDefault()});
+moreBtn.addEventListener('click',showMore);
+
+function heroHome(x){
+  var frame=document.getElementById('heroFrame'),img=document.getElementById('heroImg'),cap=document.getElementById('heroCap');
+  var href=HOMES_BASE+x.id+'.html';
+  frame.href=href;
+  img.onload=function(){img.classList.add('ok')};
+  img.src=x.photo;
+  frame.appendChild(el('span','badge','Featured'));
+  var a=el('a','cap-link');a.href=href;
+  a.appendChild(el('span','h-street',(x.street||x.address)+', '+cityName(x.city)));
+  var r=el('span','h-rent',money(x.rent_val));r.appendChild(el('small',null,'/mo'));
+  a.appendChild(r);
+  a.appendChild(el('span','h-specs',specsText(x)));
+  a.appendChild(el('span','h-go','View this home'));
+  cap.appendChild(a);
+}
+
+var picksReq=fetch(FEATURED).then(function(r){return r.ok?r.json():null}).catch(function(){return null});
+var feedModified=null;
+Promise.all([fetch(FEED).then(function(r){
+  if(!r.ok)throw new Error(r.status);
+  feedModified=r.headers.get('Last-Modified');
+  return r.json();
+}),picksReq]).then(function(res){
+  var all=res[0];
+  pool=all.filter(function(x){return METRO.indexOf(x.city)>-1&&x.photo&&x.rent_val>0});
+  if(!pool.length)throw new Error('empty');
+  var picks=livePicks(res[1],all);
+  var order=homeOrder(pool,picks);
+  order.forEach(function(x,i){rank[x.id]=i});
+  var inPool=Object.create(null);pool.forEach(function(x){inPool[x.id]=1});
+  picks.forEach(function(x){if(inPool[x.id])featuredIds[x.id]=1});
+
+  document.getElementById('heroCount').textContent=pool.length+' homes for rent across Greater Orlando today';
+
+  var lm=feedModified?new Date(feedModified):null;
+  if(lm&&!isNaN(lm)){
+    var o={hour:'numeric',minute:'2-digit',timeZone:'America/New_York'};
+    var day=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',dateStyle:'short'});
+    if(day.format(lm)!==day.format(new Date())){o.month='short';o.day='numeric';}
+    var fresh=document.getElementById('fresh');
+    fresh.textContent='Straight from Atrium’s listings, updated '+new Intl.DateTimeFormat('en-US',o).format(lm)+' ET';
+    fresh.hidden=false;
+  }
+
+  /* areas, biggest first */
+  var counts=Object.create(null);
+  pool.forEach(function(x){var c=cityName(x.city);counts[c]=(counts[c]||0)+1});
+  var area=document.getElementById('area');
+  Object.keys(counts).sort(function(a,b){return counts[b]-counts[a]||a.localeCompare(b)}).forEach(function(c){
+    var opt=el('option',null,c+' ('+counts[c]+')');opt.value=c;area.appendChild(opt);
+  });
+
+  var lead=order[0];
+  if(lead&&featuredIds[lead.id])heroHome(lead);
+  else{document.getElementById('heroHome').hidden=true;document.querySelector('.hero').classList.add('solo')}
+
+  document.getElementById('loading').remove();
+  form.hidden=false;document.getElementById('bar').hidden=false;
+  update();
+}).catch(function(){
+  document.getElementById('heroHome').hidden=true;
+  document.querySelector('.hero').classList.add('solo');
+  listEl.textContent='';
+  var note=el('div','note');
+  var p=el('p',null,'Listings didn’t load. Reload the page, or browse every current home at ');
+  var a=el('a',null,'meetatrium.com/residential-listings');
+  a.href='https://www.meetatrium.com/residential-listings?utm_source=orlandorentals.com&utm_medium=referral&utm_campaign=orlando_rentals_landing';
+  p.appendChild(a);p.appendChild(document.createTextNode('.'));
+  note.appendChild(p);listEl.appendChild(note);
+});
+})();
+</script>
+</body>
+</html>

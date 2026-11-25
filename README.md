@@ -95,6 +95,25 @@ site: "Yes, we slopped this site together with AI. The homes we still manage
 the old-fashioned way." (Alex, 11/25: funny, not a disclaimer; Alex picked this
 line.)
 
+## V2 (experiment)
+
+`v2/index.html` is a second take on the same page, made to compare against the
+live one at `/v2/` (it is `noindex` and shares `assets/` and the same live
+feeds). It keeps the brand and every fact; what changes is the layout:
+
+- a light page where real home photos carry the colour, with a live featured
+  home in the hero and the owners section as the one black band;
+- every Greater Orlando home browsable on the page, not 12: a price list by
+  size (how many homes, lowest rent) that is also the size filter, plus type,
+  area, max rent and sort;
+- the facts as one sentence in the owners section instead of a ledger, and one
+  piece of motion (the full stop landing).
+
+Its filter and ordering rules have tests (`tests/v2_browse.test.mjs`). The
+default order fixes a gap in the live page's sample: scattered houses all carry
+the community "Atrium Management Company", so the live page's two-per-community
+cap lets only two houses in.
+
 ## Hosting
 
 GitHub Pages (this repo, `main`, root), custom domain via `CNAME`. Preview
